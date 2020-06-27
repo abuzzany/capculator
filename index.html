@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+    <script src="./scripts/calc-handler.js"></script>
 </head>
 <body>
     <table id="calculator">
@@ -11,71 +12,71 @@
         <tr>
             <td>
                 <td>
-                    <button id="clear-key">AC</button>
+                    <button id="clear-key" value="ac" onclick="onClicKey(event)">AC</button>
                 </td>
                 <td>
-                    <button id="division-key">÷</button>
-                </td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <td>
-                    <button id="seven-key">7</button>
-                </td>
-                <td>
-                    <button id="eight-key">8</button>
-                </td>
-                <td>
-                    <button id="nine-key">9</button>
-                </td>
-                <td>
-                    <button id="multiplication-key">X</button>
+                    <button id="division-key" value="÷" onclick="onClicKey(event)">÷</button>
                 </td>
             </td>
         </tr>
         <tr>
             <td>
                 <td>
-                    <button id="four-key">4</button>
+                    <button id="seven-key" value="7" onclick="onClicKey(event)">7</button>
                 </td>
                 <td>
-                    <button id="five-key">5</button>
+                    <button id="eight-key" value="8" onclick="onClicKey(event)">8</button>
                 </td>
                 <td>
-                    <button id="six-key">6</button>
+                    <button id="nine-key" value="9" onclick="onClicKey(event)">9</button>
                 </td>
                 <td>
-                    <button id="substraction-key">-</button>
+                    <button id="multiplication-key" value="x" onclick="onClicKey(event)">x</button>
                 </td>
             </td>
         </tr>
         <tr>
             <td>
                 <td>
-                    <button id="one-key">1</button>
+                    <button id="four-key" value="4" onclick="onClicKey(event)">4</button>
                 </td>
                 <td>
-                    <button id="two-key">2</button>
+                    <button id="five-key" value="5" onclick="onClicKey(event)">5</button>
                 </td>
                 <td>
-                    <button id="three-key">3</button>
+                    <button id="six-key" value="6" onclick="onClicKey(event)">6</button>
                 </td>
                 <td>
-                    <button id="addition-key">+</button>
+                    <button id="substraction-key" value="-" onclick="onClicKey(event)">-</button>
+                </td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <td>
+                    <button id="one-key" value="1" onclick="onClicKey(event)">1</button>
+                </td>
+                <td>
+                    <button id="two-key" value="2" onclick="onClicKey(event)">2</button>
+                </td>
+                <td>
+                    <button id="three-key" value="3" onclick="onClicKey(event)">3</button>
+                </td>
+                <td>
+                    <button id="addition-key" value="+" onclick="onClicKey(event)">+</button>
                 </td>
             </td>
          </tr>
         <tr>
            <td>
                <td>
-                   <button id="zero-key">0</button>
+                   <button id="zero-key" value="0" onclick="onClicKey(event)">0</button>
                </td>
                <td>
-                   <button id="float-point-key">.</button>
+                   <button id="float-point-key" value="." onclick="onClicKey(event)">.</button>
                </td>
                <td>
-                   <button id="equal-key">=</button>
+                   <button id="equal-key" value="=" onclick="onClicKey(event)">=</button>
                </td>
            </td>
         </tr>
