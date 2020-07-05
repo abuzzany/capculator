@@ -39,7 +39,6 @@ class Capculator{
     
         switch(this.operator){
             case "+":
-                console.log(result)
                 result = parseFloat(this.stackOperations[0]) + parseFloat(this.stackOperations[2])
                 break
             case "-":
