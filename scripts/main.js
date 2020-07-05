@@ -2,43 +2,43 @@ class Capculator{
     constructor(display){
         this.display = display
 
-        this.currentOperand = ''
-        this.operator = ''
+        this.selectedOperand = ''
+        this.selectedOperator = ''
         this.bufferOperands = []
         this.stackOperations = []
     }
 
     addOperand(number){
         if(number === '.' && this.bufferOperands.includes(number)) return
-        this.currentOperand = this.currentOperand + number
+        this.selectedOperand = this.selectedOperand + number
         this.bufferOperands.push(number)
     }
 
     addOperator(operator){
-        if (this.currentOperand === '') return
+        if (this.selectedOperand === '') return
     
         this.emptyBufferOperands()
-        this.operator = operator
+        this.selectedOperator = operator
         this.stackOperations.push(operator)
-        this.currentOperand = ''
+        this.selectedOperand = ''
     }
 
     calculateResult(){
-        if (this.currentOperand === '' || this.operator === '') return
+        if (this.selectedOperand === '' || this.selectedOperator === '') return
 
         this.emptyBufferOperands()
 
-        this.currentOperand = this.calculate()
-        this.bufferOperands.push(this.currentOperand)
+        this.selectedOperand = this.calculate()
+        this.bufferOperands.push(this.selectedOperand)
 
         this.stackOperations = []
-        this.operator = ''
+        this.selectedOperator = ''
     }
 
     calculate(){
         let result = ''
     
-        switch(this.operator){
+        switch(this.selectedOperator){
             case "+":
                 result = parseFloat(this.stackOperations[0]) + parseFloat(this.stackOperations[2])
                 break
@@ -64,14 +64,14 @@ class Capculator{
     }
 
     clear(){
-        this.operator = ''
-        this.currentOperand = ''
+        this.selectedOperator = ''
+        this.selectedOperand = ''
         this.stackOperations  = []
         this.bufferOperands = []
     }
 
     updateDisplay(){
-        this.display.innerHTML = this.currentOperand
+        this.display.innerHTML = this.selectedOperand
     }
 }
 
