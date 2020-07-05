@@ -30,6 +30,14 @@ class Capculator{
 
         this.emptyBufferOperands()
     
+        this.stackOperations = []
+        this.operator = ''
+        this.currentOperand = ''
+    
+        this.display.innerHTML = this.calculate
+    }
+
+    calculate(){
         let result = ''
     
         switch(this.operator){
@@ -46,12 +54,8 @@ class Capculator{
                 result = parseFloat(this.stackOperations[0]) / parseFloat(this.stackOperations[2])
                 break
         }
-    
-        this.stackOperations = []
-        this.operator = ''
-        this.currentOperand = ''
-    
-        this.display.innerHTML = result
+
+        return result
     }
 
     emptyBufferOperands(){
