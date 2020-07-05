@@ -47,6 +47,7 @@ class Capculator{
     }
 
     addOperator(operator){
+        // Returns if there is no variables to perform an operation
         if (this.selectedOperand === '') return
     
         this.emptyBufferOperands()
@@ -64,10 +65,29 @@ class Capculator{
 
         // Tmp
         this.currentOperator = operator
+
+        if(this.divPrevOperand !== '' && this.prevOperator !== '' && this.currentOperand !== ''){
+            this.emptyBufferOperands()
+
+            this.displayResult = this.calculate()
+            this.bufferOperands.push(this.displayResult)
+    
+            this.stackOperations = []
+            this.selectedOperator = ''
+            this.selectedOperand = ''
+    
+            // Tmp
+            this.prevOperand = this.displayResult
+            this.currentOperand = ''
+            this.prevOperator = this.currentOperator
+            this.currentOperator = '' 
+
+            this.updateDisplay()
+        }
     }
 
     calculateResult(){
-        if (this.selectedOperand === '' || this.selectedOperator === '') return
+        if (this.divPrevOperand !== '' && this.prevOperator !== '' && this.currentOperand !== '') return
 
         this.emptyBufferOperands()
 
