@@ -28,7 +28,7 @@ class Capculator{
 
         // If exists a prevOperation and Its digitin a new nuber
         // clear previous operation to crate a new one operation
-        if(this.prevOperator !==  ''){
+        if(this.prevOperator !==  '' && this.currentOperator === ''){
             this.clearPrevOperation()
         }
 
@@ -47,7 +47,7 @@ class Capculator{
 
     addOperator(operator){
         // Returns if there is no at leas a variable to perform an operation
-        if (this.selectedOperand === '') return
+        if (this.currentOperand === '') return
         
         // Si ya había algo en el currentOperator entonces 
         // este pasa a ser el prevOperator y currentOperator adquiere el nuevo
@@ -65,12 +65,13 @@ class Capculator{
         // Support for compute opeation there are all necesaries variables
         if(this.prevOperand !== '' && this.prevOperator !== '' && this.currentOperand !== ''){
             this.calculateResult()
+            this.currentOperator = operator
             this.updateDisplay()
         }
     }
 
     calculateResult(){
-        if (this.divPrevOperand === '' && this.prevOperator === '' && this.currentOperand === '') return
+        if (this.prevOperand === '' && this.prevOperator === '' && this.currentOperand === '') return
 
         this.emptyBufferOperands()
 
