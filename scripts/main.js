@@ -66,6 +66,8 @@ class Capculator{
         if(this.prevOperand !== '' && this.prevOperator !== '' && this.currentOperand !== ''){
             this.calculateResult()
             this.currentOperator = operator
+            this.emptyBufferOperands()
+            this.stackOperations.push(operator)
             this.updateDisplay()
         }
     }
