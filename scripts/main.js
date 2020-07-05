@@ -73,8 +73,6 @@ class Capculator{
 
 const display = document.getElementById('')
 
-console.log(display)
-
 const capculator = new Capculator(display)
 
 function onClickOperand(event){
