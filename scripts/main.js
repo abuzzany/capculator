@@ -60,8 +60,8 @@ function onClickPoint(event){
 }
 
 function onClickClear(event){
-    value = event.target.value
-    this.display.innerHTML = value
+    clear()
+    this.display.innerHTML = 0
 }
 
 function emptyBufferOperands(){
@@ -69,4 +69,11 @@ function emptyBufferOperands(){
         stackOperations.push(bufferOperands.join(''))
         bufferOperands = []
     }
+}
+
+function clear(){
+    this.operator = ''
+    this.prevOperand = ''
+    this.stackOperations  = []
+    this.bufferOperands = []
 }
