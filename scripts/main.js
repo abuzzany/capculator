@@ -67,27 +67,13 @@ class Capculator{
         this.currentOperator = operator
 
         if(this.divPrevOperand !== '' && this.prevOperator !== '' && this.currentOperand !== ''){
-            this.emptyBufferOperands()
-
-            this.displayResult = this.calculate()
-            this.bufferOperands.push(this.displayResult)
-    
-            this.stackOperations = []
-            this.selectedOperator = ''
-            this.selectedOperand = ''
-    
-            // Tmp
-            this.prevOperand = this.displayResult
-            this.currentOperand = ''
-            this.prevOperator = this.currentOperator
-            this.currentOperator = '' 
-
+            this.calculateResult()
             this.updateDisplay()
         }
     }
 
     calculateResult(){
-        if (this.divPrevOperand !== '' && this.prevOperator !== '' && this.currentOperand !== '') return
+        if (this.divPrevOperand === '' && this.prevOperator === '' && this.currentOperand === '') return
 
         this.emptyBufferOperands()
 
