@@ -2,7 +2,6 @@ class Capculator{
     constructor(display){
         this.display = display
 
-        this.prevOperand = ''
         this.currentOperand = ''
         this.operator = ''
         this.bufferOperands = []
@@ -10,25 +9,24 @@ class Capculator{
     }
 
     addOperand(number){
-        this.prevOperand = this.prevOperand + number
-        this.currentOperand = number
+        this.currentOperand = this.currentOperand + number
     
         this.bufferOperands.push(number)
 
-        this.display.innerHTML = this.prevOperand
+        this.display.innerHTML = this.currentOperand
     }
 
     addOperator(operator){
-        if (this.prevOperand === '') return
+        if (this.currentOperand === '') return
     
         this.emptyBufferOperands()
         this.operator = operator
         this.stackOperations.push(operator)
-        this.prevOperand = ''
+        this.currentOperand = ''
     }
 
     calculateResult(){
-        if (this.prevOperand === '' || this.operator === '') return
+        if (this.currentOperand === '' || this.operator === '') return
 
         this.emptyBufferOperands()
     
@@ -51,7 +49,7 @@ class Capculator{
     
         this.stackOperations = []
         this.operator = ''
-        this.prevOperand = ''
+        this.currentOperand = ''
     
         this.display.innerHTML = result
     }
@@ -65,7 +63,7 @@ class Capculator{
 
     clear(){
         this.operator = ''
-        this.prevOperand = ''
+        this.currentOperand = ''
         this.stackOperations  = []
         this.bufferOperands = []
     }
