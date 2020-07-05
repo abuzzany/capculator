@@ -1,17 +1,55 @@
 class Capculator{
-    constructor(display){
+    constructor(display, buffer, stack, selOperand, divCurrentOperand, divPrevOperand, divCurrentOperator, divPrevOperator){
         this.display = display
+        this.buffer = buffer
+        this.stack = stack
+        this.selOperand = selOperand
+        this.divCurrentOperand = divCurrentOperand
+        this.divPrevOperand = divPrevOperand
+        this.divCurrentOperator = divCurrentOperator
+        this.divPrevOperator = divPrevOperator
+
+        this.prevOperand = ''
+        this.currentOperand = ''
+        this.prevOperator = ''
+        this.currentOperator = ''
 
         this.selectedOperand = ''
         this.selectedOperator = ''
+        this.displayResult = ''
         this.bufferOperands = []
         this.stackOperations = []
     }
 
     addOperand(number){
+        // Support for float point operations.
+        // Avoid havemore than one floar point in the bufferOperands.
         if(number === '.' && this.bufferOperands.includes(number)) return
         this.selectedOperand = this.selectedOperand + number
+
+        // Temp
+        // Si hubo una operación anterior y estoy digitando un nuevo número
+        // Entonces borra la operación anterior
+        if(this.prevOperator !==  ''){
+            console.log("AAAAAAAA")
+            this.prevOperand = ''
+            this.currentOperand  = ''
+            this.prevOperator = ''
+            this.bufferOperands = []
+        }
+
+        // Esto iba arriba
         this.bufferOperands.push(number)
+
+        // Si ya había algo en el currentOperand entonces 
+        // este pasa a ser el prevOperand y currenOpenrand adquiere el nuevo
+        // valor.
+        if(this.currentOperand !== ''){
+            this.prevOperand = this.currentOperand
+        }
+
+        // Temp
+        this.currentOperand = number
     }
 
     addOperator(operator){
@@ -21,6 +59,17 @@ class Capculator{
         this.selectedOperator = operator
         this.stackOperations.push(operator)
         this.selectedOperand = ''
+
+        // Temp
+        // Si ya había algo en el currentOperator entonces 
+        // este pasa a ser el prevOperator y currentOperator adquiere el nuevo
+        // valor.
+        if(this.currentOperator !== ''){
+            this.prevOperator = this.currentOperator
+        }
+
+        // Tmp
+        this.currentOperator = operator
     }
 
     calculateResult(){
@@ -28,11 +77,18 @@ class Capculator{
 
         this.emptyBufferOperands()
 
-        this.selectedOperand = this.calculate()
-        this.bufferOperands.push(this.selectedOperand)
+        this.displayResult = this.calculate()
+        this.bufferOperands.push(this.displayResult)
 
         this.stackOperations = []
         this.selectedOperator = ''
+        this.selectedOperand = ''
+
+        // Tmp
+        this.prevOperand = this.displayResult
+        this.currentOperand = ''
+        this.prevOperator = this.currentOperator
+        this.currentOperator = '' 
     }
 
     calculate(){
@@ -71,13 +127,32 @@ class Capculator{
     }
 
     updateDisplay(){
-        this.display.innerHTML = this.selectedOperand
+        this.buffer.innerHTML = "Buffer " + this.bufferOperands
+        this.stack.innerHTML = "Stack " + this.stackOperations
+        this.selOperand.innerHTML = "selOperand " + this.selectedOperand
+        this.divCurrentOperand.innerHTML = "divCurrentOperand " + this.currentOperand
+        this.divPrevOperand.innerHTML = "divPrevOperand " + this.prevOperand
+        this.divCurrentOperator.innerHTML = "divCurrentOperator " + this.currentOperator
+        this.divPrevOperator.innerHTML = "divPrevOperator " + this.prevOperator
+
+        this.selOperand.innerHTML = "selOperand " + this.selectedOperand
+        if(this.selectedOperand !== '')
+            this.display.innerHTML = this.selectedOperand
+        else
+            this.display.innerHTML = this.displayResult
     }
 }
 
+const buffer = document.getElementById('buffer')
+const stack = document.getElementById('stack')
+const selOperand = document.getElementById('selOperand')
+const divCurrentOperand = document.getElementById('divCurrentOperand')
+const divPrevOperand = document.getElementById('divPrevOperand')
+const divCurrentOperator = document.getElementById('divCurrentOperator')
+const divPrevOperator = document.getElementById('divPrevOperator')
 const display = document.getElementById('display')
 
-const capculator = new Capculator(display)
+const capculator = new Capculator(display, buffer, stack, selOperand, divCurrentOperand, divPrevOperand, divCurrentOperator, divPrevOperator)
 
 function onClickOperand(event){
     value = event.target.value
