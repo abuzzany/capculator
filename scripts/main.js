@@ -48,12 +48,7 @@ class Capculator{
     addOperator(operator){
         // Returns if there is no at leas a variable to perform an operation
         if (this.selectedOperand === '') return
-    
-        this.emptyBufferOperands()
-        this.stackOperations.push(operator)
-        this.selectedOperand = ''
-
-        // Temp
+        
         // Si ya había algo en el currentOperator entonces 
         // este pasa a ser el prevOperator y currentOperator adquiere el nuevo
         // valor.
@@ -61,9 +56,13 @@ class Capculator{
             this.prevOperator = this.currentOperator
         }
 
-        // Tmp
         this.currentOperator = operator
+    
+        this.emptyBufferOperands()
+        this.stackOperations.push(operator)
+        this.selectedOperand = ''
 
+        // Support for compute opeation there are all necesaries variables
         if(this.prevOperand !== '' && this.prevOperator !== '' && this.currentOperand !== ''){
             this.calculateResult()
             this.updateDisplay()
