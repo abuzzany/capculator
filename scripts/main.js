@@ -71,7 +71,7 @@ class Capculator{
     }
 }
 
-const display = document.getElementById('')
+const display = document.getElementById('display')
 
 const capculator = new Capculator(display)
 
