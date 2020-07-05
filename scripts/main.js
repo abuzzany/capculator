@@ -29,7 +29,8 @@ class Capculator{
         this.emptyBufferOperands()
 
         this.currentOperand = this.calculate()
-    
+        this.bufferOperands.push(this.currentOperand)
+
         this.stackOperations = []
         this.operator = ''
     }
