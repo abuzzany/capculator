@@ -16,47 +16,44 @@ function onClickOperand(event){
 }
 
 function onClickOperator(event){
+    if (prevOperand === '') return
+    
     value = event.target.value
-
-    if(bufferOperands.length != 0){
-        stackOperations.push(bufferOperands.join(''))
-        stackOperations.push(value)
-        bufferOperands = []
-        prevOperand = ''
-        operator = value
-    }
+    emptyBufferOperands()
+    operator = value
+    stackOperations.push(operator)
+    prevOperand = ''
 }
 
 function onClickEqual(event){
     value = event.target.value
 
-    if(bufferOperands.length != 0){
-        stackOperations.push(bufferOperands.join(''))
+    if (prevOperand === '' || operator === '') return
 
-        result = ''
+    emptyBufferOperands()
 
-        switch(operator){
-            case "+":
-                result = parseFloat(stackOperations[0]) + parseFloat(stackOperations[2])
-                break
-            case "-":
-                result = parseFloat(stackOperations[0]) - parseFloat(stackOperations[2])
-                break
-            case "*":
-                result = parseFloat(stackOperations[0]) * parseFloat(stackOperations[2])
-                break
-            case "/":
-                result = parseFloat(stackOperations[0]) / parseFloat(stackOperations[2])
-                break
-        }
+    result = ''
 
-        bufferOperands = []
-        stackOperations = []
-        operator = ''
-        prevOperand = ''
-
-        this.display.innerHTML = result
+    switch(operator){
+        case "+":
+            result = parseFloat(stackOperations[0]) + parseFloat(stackOperations[2])
+            break
+        case "-":
+            result = parseFloat(stackOperations[0]) - parseFloat(stackOperations[2])
+            break
+        case "*":
+            result = parseFloat(stackOperations[0]) * parseFloat(stackOperations[2])
+            break
+        case "/":
+            result = parseFloat(stackOperations[0]) / parseFloat(stackOperations[2])
+            break
     }
+
+    stackOperations = []
+    operator = ''
+    prevOperand = ''
+
+    this.display.innerHTML = result
 }
 
 function onClickPoint(event){
@@ -67,4 +64,11 @@ function onClickPoint(event){
 function onClickClear(event){
     value = event.target.value
     this.display.innerHTML = value
+}
+
+function emptyBufferOperands(){
+    if(bufferOperands.length != 0){
+        stackOperations.push(bufferOperands.join(''))
+        bufferOperands = []
+    }
 }
