@@ -34,18 +34,18 @@ class Capculator{
     
         let result = ''
     
-        switch(operator){
+        switch(this.operator){
             case "+":
-                result = parseFloat(stackOperations[0]) + parseFloat(stackOperations[2])
+                result = parseFloat(this.stackOperations[0]) + parseFloat(this.stackOperations[2])
                 break
             case "-":
-                result = parseFloat(stackOperations[0]) - parseFloat(stackOperations[2])
+                result = parseFloat(this.stackOperations[0]) - parseFloat(this.stackOperations[2])
                 break
             case "*":
-                result = parseFloat(stackOperations[0]) * parseFloat(stackOperations[2])
+                result = parseFloat(this.stackOperations[0]) * parseFloat(this.stackOperations[2])
                 break
             case "/":
-                result = parseFloat(stackOperations[0]) / parseFloat(stackOperations[2])
+                result = parseFloat(this.stackOperations[0]) / parseFloat(this.stackOperations[2])
                 break
         }
     
@@ -57,9 +57,9 @@ class Capculator{
     }
 
     emptyBufferOperands(){
-        if(bufferOperands.length != 0){
-            stackOperations.push(bufferOperands.join(''))
-            bufferOperands = []
+        if(this.bufferOperands.length != 0){
+            this.stackOperations.push(this.bufferOperands.join(''))
+            this.bufferOperands = []
         }
     }
 
