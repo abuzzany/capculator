@@ -23,22 +23,16 @@ class Capculator{
 
     addOperand(number){
         // Support for float point operations.
-        // Avoid havemore than one floar point in the bufferOperands.
+        // Avoid have more than one float point in the bufferOperands.
         if(number === '.' && this.bufferOperands.includes(number)) return
         this.selectedOperand = this.selectedOperand + number
 
-        // Temp
-        // Si hubo una operación anterior y estoy digitando un nuevo número
-        // Entonces borra la operación anterior
+        // If exists a prevOperation and Its digitin a new nuber
+        // clear prevoios operation to crate a new one operation
         if(this.prevOperator !==  ''){
-            console.log("AAAAAAAA")
-            this.prevOperand = ''
-            this.currentOperand  = ''
-            this.prevOperator = ''
-            this.bufferOperands = []
+            this.clearPrevOperation()
         }
 
-        // Esto iba arriba
         this.bufferOperands.push(number)
 
         // Si ya había algo en el currentOperand entonces 
@@ -140,6 +134,15 @@ class Capculator{
             this.display.innerHTML = this.selectedOperand
         else
             this.display.innerHTML = this.displayResult
+    }
+
+    clearPrevOperation(){
+        this.prevOperand = ''
+        this.currentOperand  = ''
+        this.prevOperator = ''
+        this.currentOperator = ''
+        this.bufferOperands = []
+        this.stackOperations = []
     }
 }
 
