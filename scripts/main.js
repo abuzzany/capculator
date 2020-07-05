@@ -15,7 +15,6 @@ class Capculator{
         this.currentOperator = ''
 
         this.selectedOperand = ''
-        this.selectedOperator = ''
         this.displayResult = ''
         this.bufferOperands = []
         this.stackOperations = []
@@ -28,7 +27,7 @@ class Capculator{
         this.selectedOperand = this.selectedOperand + number
 
         // If exists a prevOperation and Its digitin a new nuber
-        // clear prevoios operation to crate a new one operation
+        // clear previous operation to crate a new one operation
         if(this.prevOperator !==  ''){
             this.clearPrevOperation()
         }
@@ -47,11 +46,10 @@ class Capculator{
     }
 
     addOperator(operator){
-        // Returns if there is no variables to perform an operation
+        // Returns if there is no at leas a variable to perform an operation
         if (this.selectedOperand === '') return
     
         this.emptyBufferOperands()
-        this.selectedOperator = operator
         this.stackOperations.push(operator)
         this.selectedOperand = ''
 
@@ -66,7 +64,7 @@ class Capculator{
         // Tmp
         this.currentOperator = operator
 
-        if(this.divPrevOperand !== '' && this.prevOperator !== '' && this.currentOperand !== ''){
+        if(this.prevOperand !== '' && this.prevOperator !== '' && this.currentOperand !== ''){
             this.calculateResult()
             this.updateDisplay()
         }
@@ -81,7 +79,6 @@ class Capculator{
         this.bufferOperands.push(this.displayResult)
 
         this.stackOperations = []
-        this.selectedOperator = ''
         this.selectedOperand = ''
 
         // Tmp
@@ -94,7 +91,7 @@ class Capculator{
     calculate(){
         let result = ''
     
-        switch(this.selectedOperator){
+        switch(this.currentOperator){
             case "+":
                 result = parseFloat(this.stackOperations[0]) + parseFloat(this.stackOperations[2])
                 break
@@ -120,7 +117,6 @@ class Capculator{
     }
 
     clear(){
-        this.selectedOperator = ''
         this.selectedOperand = ''
         this.stackOperations  = []
         this.bufferOperands = []
