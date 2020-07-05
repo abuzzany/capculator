@@ -26,8 +26,6 @@ function onClickOperator(event){
 }
 
 function onClickEqual(event){
-    value = event.target.value
-
     if (prevOperand === '' || operator === '') return
 
     emptyBufferOperands()
