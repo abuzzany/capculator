@@ -93,7 +93,7 @@ class Capculator{
     calculate(){
         let result = ''
     
-        switch(this.currentOperator){
+        switch(this.prevOperator){
             case "+":
                 result = parseFloat(this.stackOperations[0]) + parseFloat(this.stackOperations[2])
                 break
