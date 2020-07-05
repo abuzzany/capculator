@@ -4,6 +4,7 @@ let prevOperand = ''
 let currentOperand = ''
 let operator = ''
 let bufferOperands = []
+let stackOperations = []
 
 function onClickOperand(event){
     value = event.target.value
@@ -16,12 +17,18 @@ function onClickOperand(event){
 
 function onClickOperator(event){
     value = event.target.value
-    
 
+    if(bufferOperands.length != 0){
+        stackOperations.push(bufferOperands.join(''))
+        bufferOperands = []
+        prevOperand = ''
+        operator = value
+    }
 }
 
 function onClickEqual(event){
     value = event.target.value
+
     this.display.innerHTML = value
 }
 
