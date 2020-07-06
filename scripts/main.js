@@ -14,7 +14,6 @@ class Capculator{
         this.prevOperator = ''
         this.currentOperator = ''
 
-        this.selectedOperand = ''
         this.displayResult = ''
         this.bufferOperands = []
         this.stackOperations = []
@@ -30,7 +29,6 @@ class Capculator{
             this.clearPrevOperation()
         }
 
-        this.selectedOperand = this.selectedOperand + number
         this.bufferOperands.push(number)
         this.currentOperand = this.currentOperand + number
     }
@@ -41,11 +39,10 @@ class Capculator{
 
         this.emptyBufferOperands()
 
-        if(operator == '='){
+        if(operator === '='){
             this.calculateResult()
         }else{
             this.stackOperations.push(operator)
-            this.selectedOperand = ''
     
             // Support for compute opeation there are all necesaries variables
             if(this.prevOperand !== '' && this.currentOperator !== '' && this.currentOperand !== ''){
@@ -68,7 +65,6 @@ class Capculator{
         this.bufferOperands.push(this.displayResult)
         this.emptyBufferOperands()
         this.stackOperations.push(this.currentOperator)
-        this.selectedOperand = ''
 
         this.currentOperand = this.displayResult
     }
@@ -102,7 +98,6 @@ class Capculator{
     }
 
     clear(){
-        this.selectedOperand = ''
         this.stackOperations  = []
         this.bufferOperands = []
     }
@@ -117,10 +112,7 @@ class Capculator{
         this.divPrevOperator.innerHTML = "divPrevOperator " + this.prevOperator
 
         this.selOperand.innerHTML = "selOperand " + this.selectedOperand
-        if(this.selectedOperand !== '')
-            this.display.innerHTML = this.selectedOperand
-        else
-            this.display.innerHTML = this.displayResult
+        this.display.innerHTML = this.currentOperand
     }
 
     clearPrevOperation(){
