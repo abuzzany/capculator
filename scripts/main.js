@@ -47,6 +47,7 @@ class Capculator{
             // Support for compute opeation there are all necesaries variables
             if(this.prevOperand !== '' && this.currentOperator !== '' && this.currentOperand !== ''){
                 this.calculateResult()
+                this.stackOperations.push(this.currentOperator)
                 this.updateDisplay()
             }
         
@@ -64,11 +65,10 @@ class Capculator{
         this.stackOperations = []
         this.bufferOperands.push(this.currentOperand)
         this.emptyBufferOperands()
-        this.stackOperations.push(this.currentOperator)
     }
 
     calculate(){
-        let result = ''
+        let result
     
         switch(this.currentOperator){
             case "+":
@@ -103,13 +103,10 @@ class Capculator{
     updateDisplay(){
         this.buffer.innerHTML = "Buffer " + this.bufferOperands
         this.stack.innerHTML = "Stack " + this.stackOperations
-        this.selOperand.innerHTML = "selOperand " + this.selectedOperand
         this.divCurrentOperand.innerHTML = "divCurrentOperand " + this.currentOperand
         this.divPrevOperand.innerHTML = "divPrevOperand " + this.prevOperand
         this.divCurrentOperator.innerHTML = "divCurrentOperator " + this.currentOperator
-        this.divPrevOperator.innerHTML = "divPrevOperator " + this.prevOperator
 
-        this.selOperand.innerHTML = "selOperand " + this.selectedOperand
         this.display.innerHTML = this.currentOperand
     }
 
