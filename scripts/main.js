@@ -65,6 +65,10 @@ class Capculator{
         this.stackOperations = []
         this.bufferOperands.push(this.currentOperand)
         this.emptyBufferOperands()
+
+        // Clean variables
+        this.prevOperand = ''
+        this.currentOperator = ''
     }
 
     calculate(){
