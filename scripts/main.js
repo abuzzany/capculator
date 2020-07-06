@@ -18,14 +18,17 @@ class Capculator{
     }
 
     addOperand(number){
-        // Support for float point operations.
-        // Avoid have more than one float point in the bufferOperands.
+        // Guards for:
+        // Prevent add float point if there is no an operand
+        // Prevent add several float points
+        // Prevent add several zeros if there is no and operand but permits add it
+        // after a float point
         if (number === '.' && this.currentOperand === '') return
         if (number === '.' && this.currentOperand.includes('.')) return
         if (number === '0' && this.currentOperand.startsWith('0') && !this.currentOperand.includes('.')) return
 
-        // If exists a prevOperation and Its digitin a new nuber
-        // clear previous operation to crate a new one operation
+        // If exists a previous operation and the user starts to digit again
+        // clear previous operation to starts a new one
         if(this.currentOperator == '='){
             this.clearAll()
         }
@@ -45,7 +48,7 @@ class Capculator{
         }else{
             this.stackOperations.push(operator)
     
-            // Support for compute opeation there are all necesaries variables
+            // Performs the operations if exists all the needed variables
             if(this.prevOperand !== '' && this.currentOperator !== '' && this.currentOperand !== ''){
                 this.calculateResult()
                 this.stackOperations.push(this.currentOperator)
