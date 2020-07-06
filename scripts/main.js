@@ -22,7 +22,9 @@ class Capculator{
     addOperand(number){
         // Support for float point operations.
         // Avoid have more than one float point in the bufferOperands.
-        if(number === '.' && this.bufferOperands.includes(number)) return
+        if (number === '.' && this.currentOperand === '') return
+        if (number === '.' && this.currentOperand.includes('.')) return
+
         // If exists a prevOperation and Its digitin a new nuber
         // clear previous operation to crate a new one operation
         if(this.currentOperator == '='){
