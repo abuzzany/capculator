@@ -47,7 +47,6 @@ class Capculator{
             return
         }
 
-        this.currentOperator = operator
         this.stackOperations.push(operator)
         this.selectedOperand = ''
 
@@ -56,7 +55,8 @@ class Capculator{
             this.calculateResult()
             this.updateDisplay()
         }
-
+    
+        this.currentOperator = operator
         this.prevOperand = this.currentOperand
         this.currentOperand = ''
     }
@@ -71,7 +71,6 @@ class Capculator{
         this.stackOperations.push(this.currentOperator)
         this.selectedOperand = ''
 
-        // Tmp
         this.currentOperand = this.displayResult
     }
 
