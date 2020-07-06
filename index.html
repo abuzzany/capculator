@@ -10,13 +10,16 @@
     <table id="calculator">
         <tr>
             <td>
-                <div id="display"></div>
+                <div id="display">0</div>
             </td>
         </tr>
         <tr>
             <td>
                 <td>
-                    <button id="clear-button" value="ac" onclick="onClickClear(event)">AC</button>
+                    <button id="clear-all-button" value="ac" onclick="onClickClearAll(event)">AC</button>
+                </td>
+                <td>
+                    <button id="clear-button" value="c" onclick="onClickClear(event)">C</button>
                 </td>
                 <td>
                     <button id="division-button" value="/" onclick="onClickOperator(event)">÷</button>

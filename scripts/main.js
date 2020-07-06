@@ -1,13 +1,11 @@
 class Capculator{
-    constructor(display, buffer, stack, selOperand, divCurrentOperand, divPrevOperand, divCurrentOperator, divPrevOperator){
+    constructor(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator){
         this.display = display
         this.buffer = buffer
         this.stack = stack
-        this.selOperand = selOperand
         this.divCurrentOperand = divCurrentOperand
         this.divPrevOperand = divPrevOperand
         this.divCurrentOperator = divCurrentOperator
-        this.divPrevOperator = divPrevOperator
 
         this.prevOperand = ''
         this.currentOperand = ''
@@ -29,7 +27,7 @@ class Capculator{
         // If exists a prevOperation and Its digitin a new nuber
         // clear previous operation to crate a new one operation
         if(this.currentOperator == '='){
-            this.clearPrevOperation()
+            this.clearAll()
         }
 
         this.bufferOperands.push(number)
@@ -102,11 +100,6 @@ class Capculator{
         }
     }
 
-    clear(){
-        this.stackOperations  = []
-        this.bufferOperands = []
-    }
-
     updateDisplay(){
         this.buffer.innerHTML = "Buffer " + this.bufferOperands
         this.stack.innerHTML = "Stack " + this.stackOperations
@@ -117,7 +110,7 @@ class Capculator{
         this.display.innerHTML = this.currentOperand
     }
 
-    clearPrevOperation(){
+    clearAll(){
         this.prevOperand = ''
         this.currentOperand  = ''
         this.prevOperator = ''
@@ -125,18 +118,21 @@ class Capculator{
         this.bufferOperands = []
         this.stackOperations = []
     }
+
+    clear(){
+        this.currentOperand = ''
+        this.bufferOperands = []
+    }
 }
 
 const buffer = document.getElementById('buffer')
 const stack = document.getElementById('stack')
-const selOperand = document.getElementById('selOperand')
 const divCurrentOperand = document.getElementById('divCurrentOperand')
 const divPrevOperand = document.getElementById('divPrevOperand')
 const divCurrentOperator = document.getElementById('divCurrentOperator')
-const divPrevOperator = document.getElementById('divPrevOperator')
 const display = document.getElementById('display')
 
-const capculator = new Capculator(display, buffer, stack, selOperand, divCurrentOperand, divPrevOperand, divCurrentOperator, divPrevOperator)
+const capculator = new Capculator(display, buffer, stack, selOperand, divCurrentOperand, divPrevOperand, divCurrentOperator)
 
 function onClickOperand(event){
     value = event.target.value
@@ -163,6 +159,11 @@ function onClickPoint(event){
 
     capculator.addOperand(value)
     capculator.updateDisplay()
+}
+
+function onClickClearAll(event){
+    capculator.clearAll()
+    this.display.innerHTML = 0
 }
 
 function onClickClear(event){
