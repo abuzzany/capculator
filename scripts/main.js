@@ -24,6 +24,7 @@ class Capculator{
         // Avoid have more than one float point in the bufferOperands.
         if (number === '.' && this.currentOperand === '') return
         if (number === '.' && this.currentOperand.includes('.')) return
+        if (number === '0' && this.currentOperand.startsWith('0') && !this.currentOperand.includes('.')) return
 
         // If exists a prevOperation and Its digitin a new nuber
         // clear previous operation to crate a new one operation
