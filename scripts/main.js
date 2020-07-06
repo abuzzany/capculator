@@ -43,22 +43,21 @@ class Capculator{
 
         if(operator == '='){
             this.calculateResult()
-            this.currentOperator = operator
-            return
-        }
-
-        this.stackOperations.push(operator)
-        this.selectedOperand = ''
-
-        // Support for compute opeation there are all necesaries variables
-        if(this.prevOperand !== '' && this.currentOperator !== '' && this.currentOperand !== ''){
-            this.calculateResult()
-            this.updateDisplay()
-        }
+        }else{
+            this.stackOperations.push(operator)
+            this.selectedOperand = ''
     
+            // Support for compute opeation there are all necesaries variables
+            if(this.prevOperand !== '' && this.currentOperator !== '' && this.currentOperand !== ''){
+                this.calculateResult()
+                this.updateDisplay()
+            }
+        
+            this.prevOperand = this.currentOperand
+            this.currentOperand = ''
+        }  
+
         this.currentOperator = operator
-        this.prevOperand = this.currentOperand
-        this.currentOperand = ''
     }
 
     calculateResult(){
