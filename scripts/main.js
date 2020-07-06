@@ -36,8 +36,10 @@ class Capculator{
     }
 
     addOperator(operator){
-        // Returns if there is no at leas a variable to perform an operation
+        // Returns if there is no at least an operand to perform an operation
         if (this.currentOperand === '') return
+
+        this.emptyBufferOperands()
 
         if(operator == '='){
             this.calculateResult()
@@ -46,15 +48,12 @@ class Capculator{
         }
 
         this.currentOperator = operator
-    
-        this.emptyBufferOperands()
         this.stackOperations.push(operator)
         this.selectedOperand = ''
 
         // Support for compute opeation there are all necesaries variables
         if(this.prevOperand !== '' && this.currentOperator !== '' && this.currentOperand !== ''){
             this.calculateResult()
-            this.currentOperator = operator
             this.emptyBufferOperands()
             this.stackOperations.push(operator)
             this.updateDisplay()
@@ -66,8 +65,6 @@ class Capculator{
 
     calculateResult(){
         if (this.prevOperand === '' || this.currentOperator === '' || this.currentOperand === '') return
-
-        this.emptyBufferOperands()
 
         this.displayResult = this.calculate()
         this.bufferOperands.push(this.displayResult)
