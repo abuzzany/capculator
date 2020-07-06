@@ -24,36 +24,25 @@ class Capculator{
         // Support for float point operations.
         // Avoid have more than one float point in the bufferOperands.
         if(number === '.' && this.bufferOperands.includes(number)) return
-        this.selectedOperand = this.selectedOperand + number
-
         // If exists a prevOperation and Its digitin a new nuber
         // clear previous operation to crate a new one operation
-        if(this.prevOperator !==  '' && this.currentOperator === ''){
+        if(this.currentOperator == '='){
             this.clearPrevOperation()
         }
 
+        this.selectedOperand = this.selectedOperand + number
         this.bufferOperands.push(number)
-
-        // Si ya había algo en el currentOperand entonces 
-        // este pasa a ser el prevOperand y currenOpenrand adquiere el nuevo
-        // valor.
-        if(this.currentOperand !== ''){
-            this.prevOperand = this.currentOperand
-        }
-
-        // Temp
-        this.currentOperand = number
+        this.currentOperand = this.currentOperand + number
     }
 
     addOperator(operator){
         // Returns if there is no at leas a variable to perform an operation
         if (this.currentOperand === '') return
-        
-        // Si ya había algo en el currentOperator entonces 
-        // este pasa a ser el prevOperator y currentOperator adquiere el nuevo
-        // valor.
-        if(this.currentOperator !== ''){
-            this.prevOperator = this.currentOperator
+
+        if(operator == '='){
+            this.calculateResult()
+            this.currentOperator = operator
+            return
         }
 
         this.currentOperator = operator
@@ -63,17 +52,20 @@ class Capculator{
         this.selectedOperand = ''
 
         // Support for compute opeation there are all necesaries variables
-        if(this.prevOperand !== '' && this.prevOperator !== '' && this.currentOperand !== ''){
+        if(this.prevOperand !== '' && this.currentOperator !== '' && this.currentOperand !== ''){
             this.calculateResult()
             this.currentOperator = operator
             this.emptyBufferOperands()
             this.stackOperations.push(operator)
             this.updateDisplay()
         }
+
+        this.prevOperand = this.currentOperand
+        this.currentOperand = ''
     }
 
     calculateResult(){
-        if (this.prevOperand === '' && this.prevOperator === '' && this.currentOperand === '') return
+        if (this.prevOperand === '' || this.currentOperator === '' || this.currentOperand === '') return
 
         this.emptyBufferOperands()
 
@@ -84,10 +76,7 @@ class Capculator{
         this.selectedOperand = ''
 
         // Tmp
-        this.prevOperand = this.displayResult
-        this.currentOperand = ''
-        this.prevOperator = this.currentOperator
-        this.currentOperator = '' 
+        this.currentOperand = this.displayResult
     }
 
     calculate(){
@@ -175,7 +164,9 @@ function onClickOperator(event){
 }
 
 function onClickEqual(event){
-   capculator.calculateResult()
+   value = event.target.value
+
+   capculator.addOperator(value)
    capculator.updateDisplay()
 }
 
