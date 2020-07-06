@@ -54,8 +54,6 @@ class Capculator{
         // Support for compute opeation there are all necesaries variables
         if(this.prevOperand !== '' && this.currentOperator !== '' && this.currentOperand !== ''){
             this.calculateResult()
-            this.emptyBufferOperands()
-            this.stackOperations.push(operator)
             this.updateDisplay()
         }
 
@@ -67,9 +65,10 @@ class Capculator{
         if (this.prevOperand === '' || this.currentOperator === '' || this.currentOperand === '') return
 
         this.displayResult = this.calculate()
-        this.bufferOperands.push(this.displayResult)
-
         this.stackOperations = []
+        this.bufferOperands.push(this.displayResult)
+        this.emptyBufferOperands()
+        this.stackOperations.push(this.currentOperator)
         this.selectedOperand = ''
 
         // Tmp
