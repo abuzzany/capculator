@@ -45,6 +45,8 @@ class Capculator{
 
         if(operator === '='){
             this.calculateResult()
+
+            this.prevOperand = ''
         }else{
             this.stackOperations.push(operator)
     
@@ -69,10 +71,6 @@ class Capculator{
         this.stackOperations = []
         this.bufferOperands.push(this.currentOperand)
         this.emptyBufferOperands()
-
-        // Clean variables
-        this.prevOperand = ''
-        this.currentOperator = ''
     }
 
     calculate(){
