@@ -60,13 +60,11 @@ class Capculator{
     calculateResult(){
         if (this.prevOperand === '' || this.currentOperator === '' || this.currentOperand === '') return
 
-        this.displayResult = this.calculate()
+        this.currentOperand = this.calculate()
         this.stackOperations = []
-        this.bufferOperands.push(this.displayResult)
+        this.bufferOperands.push(this.currentOperand)
         this.emptyBufferOperands()
         this.stackOperations.push(this.currentOperator)
-
-        this.currentOperand = this.displayResult
     }
 
     calculate(){
