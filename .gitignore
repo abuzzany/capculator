@@ -3,6 +3,6 @@
 *.swo
 *.swp
 *.icloud
-
+.vscode
 node_modules
 
