@@ -6,7 +6,8 @@
   "dependencies": {
     "babel-jest": "^26.1.0",
     "express": "^4.17.1",
-    "jest": "^26.1.0"
+    "jest": "^26.1.0",
+    "uniq": "^1.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",
