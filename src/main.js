@@ -8,29 +8,21 @@ const display = document.getElementById('display')
 const capculator = new Capculator(display, buffer, stack, selOperand, divCurrentOperand, divPrevOperand, divCurrentOperator)
 
 function onClickOperand(event){
-    value = event.target.value
-
-    capculator.addOperand(value)
+    capculator.addOperand(event.target.value)
     capculator.updateDisplay()
 }
 
 function onClickOperator(event){
-    value = event.target.value
-
-    capculator.addOperator(value)
+    capculator.addOperator(event.target.value)
 }
 
 function onClickEqual(event){
-   value = event.target.value
-
-   capculator.addOperator(value)
+   capculator.addOperator(event.target.value)
    capculator.updateDisplay()
 }
 
 function onClickPoint(event){
-    value = event.target.value
-
-    capculator.addOperand(value)
+    capculator.addOperand(event.target.value)
     capculator.updateDisplay()
 }
 
