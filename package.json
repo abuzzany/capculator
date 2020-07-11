@@ -5,6 +5,7 @@
   "main": "scripts/main.js",
   "dependencies": {
     "babel-jest": "^26.1.0",
+    "browserify": "^16.5.1",
     "express": "^4.17.1",
     "jest": "^26.1.0",
     "uniq": "^1.0.1"
