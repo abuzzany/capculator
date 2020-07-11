@@ -16,7 +16,7 @@
     "@babel/preset-env": "^7.10.4"
   },
   "scripts": {
-    "build": "babel src -d public"
+    "build": "babel src -d public && browserify public/main.js -o public/bundle.js"
   },
   "repository": {
     "type": "git",
