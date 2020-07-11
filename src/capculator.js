@@ -1,4 +1,4 @@
-class Capculator{
+export default class Capculator{
     constructor(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator){
         this.display = display
         this.buffer = buffer

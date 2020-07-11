@@ -1,3 +1,5 @@
+import Capculator from './capculator'
+
 const buffer = document.getElementById('buffer')
 const stack = document.getElementById('stack')
 const divCurrentOperand = document.getElementById('divCurrentOperand')
