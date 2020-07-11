@@ -1,5 +1,10 @@
 import Capculator from './capculator'
 
+const operandButtons= document.querySelectorAll('[data-operand]')
+const operatorButtons = document.querySelectorAll('[data-operator]')
+const clearButton = document.querySelector('[data-clear]')
+const clearAllButton = document.querySelector('[data-clear-all]')
+
 const buffer = document.getElementById('buffer')
 const stack = document.getElementById('stack')
 const divCurrentOperand = document.getElementById('divCurrentOperand')
@@ -9,31 +14,25 @@ const display = document.getElementById('display')
 
 const capculator = new Capculator(display, buffer, stack, selOperand, divCurrentOperand, divPrevOperand, divCurrentOperator)
 
-function onClickOperand(event){
-    capculator.addOperand(event.target.value)
-    capculator.updateDisplay()
-}
+operandButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      capculator.addOperand(button.innerText)
+      capculator.updateDisplay()
+    })
+})
 
-function onClickOperator(event){
-    capculator.addOperator(event.target.value)
-}
+operatorButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      capculator.addOperator(button.innerText)
+    })
+})
 
-function onClickEqual(event){
-   capculator.addOperator(event.target.value)
-   capculator.updateDisplay()
-}
-
-function onClickPoint(event){
-    capculator.addOperand(event.target.value)
-    capculator.updateDisplay()
-}
-
-function onClickClearAll(event){
-    capculator.clearAll()
-    this.display.innerHTML = 0
-}
-
-function onClickClear(event){
+clearButton.addEventListener('click', () => {
     capculator.clear()
-    this.display.innerHTML = 0
-}
+    capculator.updateDisplay()
+})
+
+clearAllButton.addEventListener('click', () => {
+    capculator.clearAll()
+    capculator.updateDisplay()
+})

@@ -4,8 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Capculator</title>
-    <script src="public/capculator.js" defer></script>
-    <script src="public/main.js" defer></script>
 </head>
 <body>
     <table id="calculator">
@@ -17,74 +15,74 @@
         <tr>
             <td>
                 <td>
-                    <button id="clear-all-button" value="ac" onclick="onClickClearAll(event)">AC</button>
+                    <button data-clear-all>AC</button>
                 </td>
                 <td>
-                    <button id="clear-button" value="c" onclick="onClickClear(event)">C</button>
+                    <button data-clear>C</button>
                 </td>
                 <td>
-                    <button id="division-button" value="/" onclick="onClickOperator(event)">÷</button>
-                </td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <td>
-                    <button id="seven-button" value="7" onclick="onClickOperand(event)">7</button>
-                </td>
-                <td>
-                    <button id="eight-button" value="8" onclick="onClickOperand(event)">8</button>
-                </td>
-                <td>
-                    <button id="nine-button" value="9" onclick="onClickOperand(event)">9</button>
-                </td>
-                <td>
-                    <button id="multiplication-button" value="*" onclick="onClickOperator(event)">x</button>
+                    <button data-operator>/</button>
                 </td>
             </td>
         </tr>
         <tr>
             <td>
                 <td>
-                    <button id="four-button" value="4" onclick="onClickOperand(event)">4</button>
+                    <button data-operand>7</button>
                 </td>
                 <td>
-                    <button id="five-button" value="5" onclick="onClickOperand(event)">5</button>
+                    <button data-operand>8</button>
                 </td>
                 <td>
-                    <button id="six-button" value="6" onclick="onClickOperand(event)">6</button>
+                    <button data-operand>9</button>
                 </td>
                 <td>
-                    <button id="substraction-button" value="-" onclick="onClickOperator(event)">-</button>
+                    <button data-operator>*</button>
                 </td>
             </td>
         </tr>
         <tr>
             <td>
                 <td>
-                    <button id="one-button" value="1" onclick="onClickOperand(event)">1</button>
+                    <button data-operand>4</button>
                 </td>
                 <td>
-                    <button id="two-button" value="2" onclick="onClickOperand(event)">2</button>
+                    <button data-operand>5</button>
                 </td>
                 <td>
-                    <button id="three-button" value="3" onclick="onClickOperand(event)">3</button>
+                    <button data-operand>6</button>
                 </td>
                 <td>
-                    <button id="addition-button" value="+" onclick="onClickOperator(event)">+</button>
+                    <button data-operator>-</button>
+                </td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <td>
+                    <button data-operand>1</button>
+                </td>
+                <td>
+                    <button data-operand>2</button>
+                </td>
+                <td>
+                    <button data-operand>3</button>
+                </td>
+                <td>
+                    <button data-operator>+</button>
                 </td>
             </td>
          </tr>
         <tr>
            <td>
                <td>
-                   <button id="zero-button" value="0" onclick="onClickOperand(event)">0</button>
+                   <button data-operand>0</button>
                </td>
                <td>
-                   <button id="float-point-button" value="." onclick="onClickPoint(event)">.</button>
+                   <button data-operand>.</button>
                </td>
                <td>
-                   <button id="equal-button" value="=" onclick="onClickEqual(event)">=</button>
+                   <button data-operator>=</button>
                </td>
            </td>
         </tr>
@@ -124,4 +122,5 @@
             </td>
         </tr>
     </table>
+    <script src="public/bundle.js" defer></script>
 </body>
