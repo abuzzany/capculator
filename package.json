@@ -1,0 +1,25 @@
+{
+  "name": "capculator",
+  "version": "1.0.0",
+  "description": "This is the tech challenge for software engineer position at capital technologies.",
+  "main": "scripts/main.js",
+  "dependencies": {
+    "babel-jest": "^26.1.0",
+    "express": "^4.17.1",
+    "jest": "^26.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abuzzany/capculator.git"
+  },
+  "author": "Angel Buzany",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abuzzany/capculator/issues"
+  },
+  "homepage": "https://github.com/abuzzany/capculator#readme"
+}
