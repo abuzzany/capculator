@@ -41,6 +41,16 @@ class Capculator {
     this.emptyBufferOperands()
 
     if (operator === '=') {
+      // Performs the last operation
+      if (this.lastStackOperations.length > 0) {
+        this.stackOperations[1] = this.lastStackOperations[1]
+        this.stackOperations[2] = this.lastStackOperations[2]
+
+        this.prevOperand = this.currentOperand
+        this.currentOperand = this.lastStackOperations[2]
+        this.currentOperator = this.lastStackOperations[1]
+      }
+
       this.calculateResult()
 
       this.prevOperand = ''
@@ -54,6 +64,7 @@ class Capculator {
         this.updateDisplay()
       }
 
+      this.lastStackOperations = []
       this.prevOperand = this.currentOperand
       this.currentOperand = ''
     }
