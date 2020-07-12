@@ -12,7 +12,7 @@ const divPrevOperand = document.getElementById('divPrevOperand')
 const divCurrentOperator = document.getElementById('divCurrentOperator')
 const display = document.getElementById('display')
 
-const capculator = new Capculator(display, buffer, stack, selOperand, divCurrentOperand, divPrevOperand, divCurrentOperator)
+const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
 
 operandButtons.forEach(button => {
     button.addEventListener('click', () => {

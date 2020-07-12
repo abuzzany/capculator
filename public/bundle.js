@@ -170,7 +170,7 @@ var divCurrentOperand = document.getElementById('divCurrentOperand');
 var divPrevOperand = document.getElementById('divPrevOperand');
 var divCurrentOperator = document.getElementById('divCurrentOperator');
 var display = document.getElementById('display');
-var capculator = new _capculator["default"](display, buffer, stack, selOperand, divCurrentOperand, divPrevOperand, divCurrentOperator);
+var capculator = new _capculator["default"](display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator);
 operandButtons.forEach(function (button) {
   button.addEventListener('click', function () {
     capculator.addOperand(button.innerText);
