@@ -4,15 +4,9 @@ const operandButtons = document.querySelectorAll('[data-operand]')
 const operatorButtons = document.querySelectorAll('[data-operator]')
 const clearButton = document.querySelector('[data-clear]')
 const clearAllButton = document.querySelector('[data-clear-all]')
+const display = document.querySelector('[data-display]')
 
-const buffer = document.getElementById('buffer')
-const stack = document.getElementById('stack')
-const divCurrentOperand = document.getElementById('divCurrentOperand')
-const divPrevOperand = document.getElementById('divPrevOperand')
-const divCurrentOperator = document.getElementById('divCurrentOperator')
-const display = document.getElementById('display')
-
-const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+const capculator = new Capculator(display)
 
 operandButtons.forEach(button => {
   button.addEventListener('click', () => {

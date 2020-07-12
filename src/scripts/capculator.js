@@ -1,17 +1,10 @@
 export default class Capculator {
   constructor (display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator) {
     this.display = display
-    this.buffer = buffer
-    this.stack = stack
-    this.divCurrentOperand = divCurrentOperand
-    this.divPrevOperand = divPrevOperand
-    this.divCurrentOperator = divCurrentOperator
-
     this.prevOperand = ''
     this.currentOperand = ''
     this.prevOperator = ''
     this.currentOperator = ''
-
     this.displayResult = ''
     this.bufferOperands = []
     this.stackOperations = []
@@ -105,12 +98,7 @@ export default class Capculator {
   }
 
   updateDisplay () {
-    this.buffer.innerText = 'Buffer ' + this.bufferOperands
-    this.stack.innerText = 'Stack ' + this.stackOperations
-    this.divCurrentOperand.innerText = 'divCurrentOperand ' + this.currentOperand
-    this.divPrevOperand.innerText = 'divPrevOperand ' + this.prevOperand
-    this.divCurrentOperator.innerText = 'divCurrentOperator ' + this.currentOperator
-
+    this.log()
     this.display.innerText = this.currentOperand.toString()
   }
 
@@ -126,5 +114,13 @@ export default class Capculator {
   clear () {
     this.currentOperand = ''
     this.bufferOperands = []
+  }
+
+  log () {
+    console.log('Buffer: ' + this.bufferOperands)
+    console.log('Stack: ' + this.stackOperations)
+    console.log('currentOperand: ' + this.currentOperand)
+    console.log('revOperand: ' + this.prevOperand)
+    console.log('currentOperator: ' + this.currentOperator)
   }
 }
