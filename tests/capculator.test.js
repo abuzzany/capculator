@@ -134,7 +134,7 @@ describe('The Capculator instance', () => {
   })
 
   describe('when has computed an operation', () => {
-    it('should compute an addition correctly wiht the result of thre preoviuos operation', () => {
+    it('should compute an addition correctly with the result of thre preoviuos operation', () => {
       const capculator = new Capculator(display)
       capculator.addOperand('5')
       capculator.addOperator('+')
@@ -145,7 +145,7 @@ describe('The Capculator instance', () => {
       capculator.updateDisplay()
       expect(display.innerText).toBe('12')
     })
-    it('should compute a substraction correctly wiht the result of thre preoviuos operation', () => {
+    it('should compute a substraction correctly with the result of thre preoviuos operation', () => {
       const capculator = new Capculator(display)
       capculator.addOperand('10')
       capculator.addOperator('-')
@@ -156,7 +156,7 @@ describe('The Capculator instance', () => {
       capculator.updateDisplay()
       expect(display.innerText).toBe('3')
     })
-    it('should compute an addition correctly wiht the result of thre preoviuos operation', () => {
+    it('should compute an addition correctly with the result of thre preoviuos operation', () => {
       const capculator = new Capculator(display)
       capculator.addOperand('5')
       capculator.addOperator('*')
@@ -167,7 +167,7 @@ describe('The Capculator instance', () => {
       capculator.updateDisplay()
       expect(display.innerText).toBe('50')
     })
-    it('should compute an addition correctly wiht the result of thre preoviuos operation', () => {
+    it('should compute an addition correctly with the result of thre preoviuos operation', () => {
       const capculator = new Capculator(display)
       capculator.addOperand('10')
       capculator.addOperator('/')
