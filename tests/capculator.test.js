@@ -100,5 +100,40 @@ describe('The Capculator instance', () => {
             capculator.updateDisplay()
             expect(display.innerHTML).toBe('2.5')
         });
+
+        describe('and the next operator is not equal operator', () => {
+            it('should compute an addition correctly', () =>{
+                const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+                capculator.addOperand('5')
+                capculator.addOperator('+')
+                capculator.addOperand('5')
+                capculator.addOperator('+')
+                expect(display.innerHTML).toBe('10')
+            });
+            it('should compute a substraction correctly', () =>{
+                const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+                capculator.addOperand('5')
+                capculator.addOperator('-')
+                capculator.addOperand('5')
+                capculator.addOperator('-')
+                expect(display.innerHTML).toBe('0')
+            });
+            it('should compute a multiplication correctly', () =>{
+                const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+                capculator.addOperand('5')
+                capculator.addOperator('*')
+                capculator.addOperand('5')
+                capculator.addOperator('*')
+                expect(display.innerHTML).toBe('25')
+            });
+            it('should compute a division correctly', () =>{
+                const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+                capculator.addOperand('5')
+                capculator.addOperator('/')
+                capculator.addOperand('2')
+                capculator.addOperator('/')
+                expect(display.innerHTML).toBe('2.5')
+            });
+        });
     });
 });
