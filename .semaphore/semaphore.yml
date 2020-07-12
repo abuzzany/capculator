@@ -1,5 +1,5 @@
 version: v1.0
-name: Test MyApp
+name: Capculator CI/CD pipeline
 agent:
   machine:
     type: e1-standard-2
@@ -36,3 +36,7 @@ blocks:
             - cache restore
             - npm run test
             - cache store
+
+promotions:
+  - name: Production deploy
+    pipeline_file: production-deploy.yml

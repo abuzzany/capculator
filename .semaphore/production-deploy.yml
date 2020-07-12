@@ -1,0 +1,18 @@
+version: v1.0
+name: Deploy website
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: 🏁 Deploy
+    task:
+      secrets:
+        - name: aws-credentials
+        - name: production-envars
+      jobs:
+        - name: Copy to S3
+          commands:
+            - checkout
+            - cache restore node-modules-$(checksum package-lock.json),node-modules-
+            - sh bin/production
