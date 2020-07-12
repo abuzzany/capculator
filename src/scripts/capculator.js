@@ -1,5 +1,5 @@
 export default class Capculator {
-  constructor (display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator) {
+  constructor (display) {
     this.display = display
     this.prevOperand = ''
     this.currentOperand = ''
@@ -122,6 +122,7 @@ export default class Capculator {
     console.log('currentOperand: ' + this.currentOperand)
     console.log('prevOperand: ' + this.prevOperand)
     console.log('currentOperator: ' + this.currentOperator)
+    console.log('prevOperator: ' + this.prevOperator)
     console.log('------------------------------')
   }
 }
