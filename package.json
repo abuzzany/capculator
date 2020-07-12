@@ -23,8 +23,8 @@
   },
   "scripts": {
     "test": "jest",
-    "standard": "standard src/*",
-    "build": "babel src -d public && browserify public/main.js -o public/bundle.js"
+    "standard": "standard src/scripts/*",
+    "build": "webpack --mode=development"
   },
   "repository": {
     "type": "git",
