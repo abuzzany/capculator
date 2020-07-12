@@ -123,11 +123,14 @@ class Capculator {
     this.currentOperator = ''
     this.bufferOperands = []
     this.stackOperations = []
+    this.lastStackOperations = []
+    this.display.innerText = '0'
   }
 
   clear () {
     this.currentOperand = ''
     this.bufferOperands = []
+    this.display.innerText = '0'
   }
 
   log () {
