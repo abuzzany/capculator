@@ -180,6 +180,7 @@ operandButtons.forEach(function (button) {
 operatorButtons.forEach(function (button) {
   button.addEventListener('click', function () {
     capculator.addOperator(button.innerText);
+    if (button.innerText === '=') capculator.updateDisplay();
   });
 });
 clearButton.addEventListener('click', function () {

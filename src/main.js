@@ -24,6 +24,7 @@ operandButtons.forEach(button => {
 operatorButtons.forEach(button => {
     button.addEventListener('click', () => {
       capculator.addOperator(button.innerText)
+      if(button.innerText === '=') capculator.updateDisplay()
     })
 })
 
