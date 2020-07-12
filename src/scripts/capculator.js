@@ -122,5 +122,6 @@ export default class Capculator {
     console.log('currentOperand: ' + this.currentOperand)
     console.log('revOperand: ' + this.prevOperand)
     console.log('currentOperator: ' + this.currentOperator)
+    console.log('------------------------------')
   }
 }
