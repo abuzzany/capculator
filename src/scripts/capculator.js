@@ -1,4 +1,4 @@
-export default class Capculator {
+class Capculator {
   constructor (display) {
     this.display = display
     this.prevOperand = ''
@@ -126,3 +126,5 @@ export default class Capculator {
     console.log('------------------------------')
   }
 }
+
+export default Capculator
