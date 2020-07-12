@@ -59,7 +59,7 @@ describe('The Capculator instance', () => {
     })
   })
 
-  describe('when has two operands and one operator setted', () => {
+  describe('when has two operands and one operator is setted', () => {
     it('should compute an addition correctly', () => {
       const capculator = new Capculator(display)
       capculator.addOperand('5')

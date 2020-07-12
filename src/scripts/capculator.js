@@ -1,3 +1,4 @@
+import CapculatorEngine from './capculatorEngine'
 class Capculator {
   constructor (display) {
     this.display = display
@@ -76,7 +77,7 @@ class Capculator {
     if (this.prevOperand === '' || this.currentOperator === '' || this.currentOperand === '') return
 
     this.lastStackOperations = this.stackOperations
-    this.currentOperand = this.calculate()
+    this.currentOperand = new CapculatorEngine(this.stackOperations, this.currentOperator).compute()
     this.stackOperations = []
     this.bufferOperands.push(this.currentOperand)
     this.emptyBufferOperands()
