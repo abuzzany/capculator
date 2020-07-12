@@ -5,7 +5,7 @@ class CapculatorEngine {
   }
 
   compute () {
-    let result
+    let result = 0
 
     switch (this.currentOperator) {
       case '+':
