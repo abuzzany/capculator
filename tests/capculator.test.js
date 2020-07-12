@@ -54,5 +54,12 @@ describe('The Capculator instance', () => {
             capculator.updateDisplay()
             expect(display.innerHTML).toBe('0.')
         });
+        it('should display the operand that was setted', () => {
+            const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+
+            capculator.addOperand('5')
+            capculator.updateDisplay()
+            expect(display.innerHTML).toBe('5')
+        });
     });
 });
