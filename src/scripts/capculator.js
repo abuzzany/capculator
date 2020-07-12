@@ -117,10 +117,10 @@ export default class Capculator {
   }
 
   log () {
-    console.log('Buffer: ' + this.bufferOperands)
     console.log('Stack: ' + this.stackOperations)
+    console.log('Buffer: ' + this.bufferOperands)
     console.log('currentOperand: ' + this.currentOperand)
-    console.log('revOperand: ' + this.prevOperand)
+    console.log('prevOperand: ' + this.prevOperand)
     console.log('currentOperator: ' + this.currentOperator)
     console.log('------------------------------')
   }
