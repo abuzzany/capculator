@@ -1,4 +1,4 @@
-import Capculator from '../src/capculator'
+import Capculator from '../src/scripts/capculator'
 
 beforeAll(() => {
   document.body.innerHTML = document.body.innerHTML + "<div id='display' >0</div>"
