@@ -6,15 +6,33 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: Test
+  - name: Install dependencies
     task:
       jobs:
-        - name: Test
+        - name: npm install
           commands:
             - checkout
             - sem-version node 12
             - cache restore
             - npm install
             - cache store
-            - npm run build --if-present
-            - npm test
+  - name: Build project
+    task:
+      jobs:
+        - name: npm run build
+          commands:
+            - checkout
+            - sem-version node 12
+            - cache restore
+            - npm install
+            - cache store
+  - name: Build project
+    task:
+      jobs:
+        - name: npm run test
+          commands:
+            - checkout
+            - sem-version node 12
+            - cache restore
+            - npm run test
+            - cache store
