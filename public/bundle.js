@@ -35,17 +35,20 @@ var Capculator = /*#__PURE__*/function () {
     key: "addOperand",
     value: function addOperand(number) {
       // Guards for:
-      // Prevent add float point if there is no an operand
       // Prevent add several float points
       // Prevent add several zeros if there is no and operand but permits add it
       // after a float point
-      if (number === '.' && this.currentOperand === '') return;
       if (number === '.' && this.currentOperand.includes('.')) return;
       if (number === '0' && this.currentOperand.startsWith('0') && !this.currentOperand.includes('.')) return; // If exists a previous operation and the user starts to digit again
       // clear previous operation to starts a new one
 
-      if (this.currentOperator == '=') {
+      if (this.currentOperator === '=') {
         this.clearAll();
+      } // Add zero if the operand is a float point and there is no a ccurrentOperand
+
+
+      if (number === '.' && this.currentOperand === '') {
+        number = "0.";
       }
 
       this.bufferOperands.push(number);

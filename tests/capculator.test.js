@@ -22,13 +22,6 @@ beforeEach(() => {
 
 describe('The Capculator instance', () => {
     describe('when has not have received any opeand or opeator', () => {
-        it('should not permit add a float point if there is not a previous operand', () => {
-            const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
-
-            capculator.addOperand('.')
-            capculator.updateDisplay()
-            expect(display.innerHTML).toBe('')
-        });
         it('should not permit add a float point if the previous operand contains one', () => {
             const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
 
@@ -47,6 +40,19 @@ describe('The Capculator instance', () => {
             capculator.addOperand('0')
             capculator.updateDisplay()
             expect(display.innerHTML).toBe('0')
+        });
+        it('should not perform any operation if an operator was setted', () => {
+            const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+
+            capculator.addOperator('+')
+            expect(display.innerHTML).toBe('0')
+        });
+        it('should display a zero with float point if not exists a previous operand', () => {
+            const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+
+            capculator.addOperand('.')
+            capculator.updateDisplay()
+            expect(display.innerHTML).toBe('0.')
         });
     });
 });
