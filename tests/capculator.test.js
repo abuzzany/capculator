@@ -136,4 +136,51 @@ describe('The Capculator instance', () => {
             });
         });
     });
+
+    describe('when has compute an operation', () => {
+        it('should compute an addition correctly wiht the result of thre preoviuos operation', () =>{
+            const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+            capculator.addOperand('5')
+            capculator.addOperator('+')
+            capculator.addOperand('5')
+            capculator.addOperator('+')
+            capculator.addOperand('2')
+            capculator.addOperator('=')
+            capculator.updateDisplay()
+            expect(display.innerHTML).toBe('12')
+        });
+        it('should compute a substraction correctly wiht the result of thre preoviuos operation', () =>{
+            const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+            capculator.addOperand('10')
+            capculator.addOperator('-')
+            capculator.addOperand('5')
+            capculator.addOperator('-')
+            capculator.addOperand('2')
+            capculator.addOperator('=')
+            capculator.updateDisplay()
+            expect(display.innerHTML).toBe('3')
+        });
+        it('should compute an addition correctly wiht the result of thre preoviuos operation', () =>{
+            const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+            capculator.addOperand('5')
+            capculator.addOperator('*')
+            capculator.addOperand('5')
+            capculator.addOperator('*')
+            capculator.addOperand('2')
+            capculator.addOperator('=')
+            capculator.updateDisplay()
+            expect(display.innerHTML).toBe('50')
+        });
+        it('should compute an addition correctly wiht the result of thre preoviuos operation', () =>{
+            const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+            capculator.addOperand('10')
+            capculator.addOperator('/')
+            capculator.addOperand('2')
+            capculator.addOperator('/')
+            capculator.addOperand('2')
+            capculator.addOperator('=')
+            capculator.updateDisplay()
+            expect(display.innerHTML).toBe('2.5')
+        });
+    });
 });
