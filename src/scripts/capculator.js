@@ -113,6 +113,7 @@ class Capculator {
 
   updateDisplay () {
     this.log()
+    if(this.currentOperand === '') return this.display.innerText = 0
     this.display.innerText = this.currentOperand.toString()
   }
 
@@ -124,13 +125,11 @@ class Capculator {
     this.bufferOperands = []
     this.stackOperations = []
     this.lastStackOperations = []
-    this.display.innerText = '0'
   }
 
   clear () {
     this.currentOperand = ''
     this.bufferOperands = []
-    this.display.innerText = '0'
   }
 
   log () {
