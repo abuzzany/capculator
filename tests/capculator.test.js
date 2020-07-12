@@ -62,4 +62,43 @@ describe('The Capculator instance', () => {
             expect(display.innerHTML).toBe('5')
         });
     });
+
+    describe('when has two operands and one operator setted', () => {
+        it('should compute an addition correctly', () =>{
+            const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+            capculator.addOperand('5')
+            capculator.addOperator('+')
+            capculator.addOperand('5')
+            capculator.addOperator('=')
+            capculator.updateDisplay()
+            expect(display.innerHTML).toBe('10')
+        });
+        it('should compute a substraction correctly', () =>{
+            const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+            capculator.addOperand('5')
+            capculator.addOperator('-')
+            capculator.addOperand('5')
+            capculator.addOperator('=')
+            capculator.updateDisplay()
+            expect(display.innerHTML).toBe('0')
+        });
+        it('should compute a multiplication correctly', () =>{
+            const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+            capculator.addOperand('5')
+            capculator.addOperator('*')
+            capculator.addOperand('5')
+            capculator.addOperator('=')
+            capculator.updateDisplay()
+            expect(display.innerHTML).toBe('25')
+        });
+        it('should compute a division correctly', () =>{
+            const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
+            capculator.addOperand('5')
+            capculator.addOperator('/')
+            capculator.addOperand('2')
+            capculator.addOperator('=')
+            capculator.updateDisplay()
+            expect(display.innerHTML).toBe('2.5')
+        });
+    });
 });
