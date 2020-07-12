@@ -1,130 +1,130 @@
-export default class Capculator{
-    constructor(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator){
-        this.display = display
-        this.buffer = buffer
-        this.stack = stack
-        this.divCurrentOperand = divCurrentOperand
-        this.divPrevOperand = divPrevOperand
-        this.divCurrentOperator = divCurrentOperator
+export default class Capculator {
+  constructor (display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator) {
+    this.display = display
+    this.buffer = buffer
+    this.stack = stack
+    this.divCurrentOperand = divCurrentOperand
+    this.divPrevOperand = divPrevOperand
+    this.divCurrentOperator = divCurrentOperator
 
-        this.prevOperand = ''
-        this.currentOperand = ''
-        this.prevOperator = ''
-        this.currentOperator = ''
+    this.prevOperand = ''
+    this.currentOperand = ''
+    this.prevOperator = ''
+    this.currentOperator = ''
 
-        this.displayResult = ''
-        this.bufferOperands = []
-        this.stackOperations = []
+    this.displayResult = ''
+    this.bufferOperands = []
+    this.stackOperations = []
+  }
+
+  addOperand (number) {
+    // Guards for:
+    // Prevent add several float points
+    // Prevent add several zeros if there is no and operand but permits add it
+    // after a float point
+    if (number === '.' && this.currentOperand.includes('.')) return
+    if (number === '0' && this.currentOperand.startsWith('0') && !this.currentOperand.includes('.')) return
+
+    // If exists a previous operation and the user starts to digit again
+    // clear previous operation to starts a new one
+    if (this.currentOperator === '=') {
+      this.clearAll()
     }
 
-    addOperand(number){
-        // Guards for:
-        // Prevent add several float points
-        // Prevent add several zeros if there is no and operand but permits add it
-        // after a float point
-        if (number === '.' && this.currentOperand.includes('.')) return
-        if (number === '0' && this.currentOperand.startsWith('0') && !this.currentOperand.includes('.')) return
-
-        // If exists a previous operation and the user starts to digit again
-        // clear previous operation to starts a new one
-        if(this.currentOperator === '='){
-            this.clearAll()
-        }
-
-        // Add zero if the operand is a float point and there is no a ccurrentOperand
-        if(number === '.' && this.currentOperand === ''){
-            number = "0."
-        }
-
-        this.bufferOperands.push(number)
-        this.currentOperand = this.currentOperand + number
+    // Add zero if the operand is a float point and there is no a ccurrentOperand
+    if (number === '.' && this.currentOperand === '') {
+      number = '0.'
     }
 
-    addOperator(operator){
-        // Returns if there is no at least an operand to perform an operation
-        if (this.currentOperand === '') return
+    this.bufferOperands.push(number)
+    this.currentOperand = this.currentOperand + number
+  }
 
-        this.emptyBufferOperands()
+  addOperator (operator) {
+    // Returns if there is no at least an operand to perform an operation
+    if (this.currentOperand === '') return
 
-        if(operator === '='){
-            this.calculateResult()
+    this.emptyBufferOperands()
 
-            this.prevOperand = ''
-        }else{
-            this.stackOperations.push(operator)
-    
-            // Performs the operations if exists all the needed variables
-            if(this.prevOperand !== '' && this.currentOperator !== '' && this.currentOperand !== ''){
-                this.calculateResult()
-                this.stackOperations.push(this.currentOperator)
-                this.updateDisplay()
-            }
-        
-            this.prevOperand = this.currentOperand
-            this.currentOperand = ''
-        }  
+    if (operator === '=') {
+      this.calculateResult()
 
-        this.currentOperator = operator
+      this.prevOperand = ''
+    } else {
+      this.stackOperations.push(operator)
+
+      // Performs the operations if exists all the needed variables
+      if (this.prevOperand !== '' && this.currentOperator !== '' && this.currentOperand !== '') {
+        this.calculateResult()
+        this.stackOperations.push(this.currentOperator)
+        this.updateDisplay()
+      }
+
+      this.prevOperand = this.currentOperand
+      this.currentOperand = ''
     }
 
-    calculateResult(){
-        if (this.prevOperand === '' || this.currentOperator === '' || this.currentOperand === '') return
+    this.currentOperator = operator
+  }
 
-        this.currentOperand = this.calculate()
-        this.stackOperations = []
-        this.bufferOperands.push(this.currentOperand)
-        this.emptyBufferOperands()
+  calculateResult () {
+    if (this.prevOperand === '' || this.currentOperator === '' || this.currentOperand === '') return
+
+    this.currentOperand = this.calculate()
+    this.stackOperations = []
+    this.bufferOperands.push(this.currentOperand)
+    this.emptyBufferOperands()
+  }
+
+  calculate () {
+    let result
+
+    switch (this.currentOperator) {
+      case '+':
+        result = parseFloat(this.stackOperations[0]) + parseFloat(this.stackOperations[2])
+        break
+      case '-':
+        result = parseFloat(this.stackOperations[0]) - parseFloat(this.stackOperations[2])
+        break
+      case '*':
+        result = parseFloat(this.stackOperations[0]) * parseFloat(this.stackOperations[2])
+        break
+      case '/':
+        result = parseFloat(this.stackOperations[0]) / parseFloat(this.stackOperations[2])
+        break
     }
 
-    calculate(){
-        let result
-    
-        switch(this.currentOperator){
-            case "+":
-                result = parseFloat(this.stackOperations[0]) + parseFloat(this.stackOperations[2])
-                break
-            case "-":
-                result = parseFloat(this.stackOperations[0]) - parseFloat(this.stackOperations[2])
-                break
-            case "*":
-                result = parseFloat(this.stackOperations[0]) * parseFloat(this.stackOperations[2])
-                break
-            case "/":
-                result = parseFloat(this.stackOperations[0]) / parseFloat(this.stackOperations[2])
-                break
-        }
+    return result
+  }
 
-        return result
+  emptyBufferOperands () {
+    if (this.bufferOperands.length !== 0) {
+      this.stackOperations.push(this.bufferOperands.join(''))
+      this.bufferOperands = []
     }
+  }
 
-    emptyBufferOperands(){
-        if(this.bufferOperands.length != 0){
-            this.stackOperations.push(this.bufferOperands.join(''))
-            this.bufferOperands = []
-        }
-    }
+  updateDisplay () {
+    this.buffer.innerHTML = 'Buffer ' + this.bufferOperands
+    this.stack.innerHTML = 'Stack ' + this.stackOperations
+    this.divCurrentOperand.innerHTML = 'divCurrentOperand ' + this.currentOperand
+    this.divPrevOperand.innerHTML = 'divPrevOperand ' + this.prevOperand
+    this.divCurrentOperator.innerHTML = 'divCurrentOperator ' + this.currentOperator
 
-    updateDisplay(){
-        this.buffer.innerHTML = "Buffer " + this.bufferOperands
-        this.stack.innerHTML = "Stack " + this.stackOperations
-        this.divCurrentOperand.innerHTML = "divCurrentOperand " + this.currentOperand
-        this.divPrevOperand.innerHTML = "divPrevOperand " + this.prevOperand
-        this.divCurrentOperator.innerHTML = "divCurrentOperator " + this.currentOperator
+    this.display.innerHTML = this.currentOperand
+  }
 
-        this.display.innerHTML = this.currentOperand
-    }
+  clearAll () {
+    this.prevOperand = ''
+    this.currentOperand = ''
+    this.prevOperator = ''
+    this.currentOperator = ''
+    this.bufferOperands = []
+    this.stackOperations = []
+  }
 
-    clearAll(){
-        this.prevOperand = ''
-        this.currentOperand  = ''
-        this.prevOperator = ''
-        this.currentOperator = ''
-        this.bufferOperands = []
-        this.stackOperations = []
-    }
-
-    clear(){
-        this.currentOperand = ''
-        this.bufferOperands = []
-    }
+  clear () {
+    this.currentOperand = ''
+    this.bufferOperands = []
+  }
 }
