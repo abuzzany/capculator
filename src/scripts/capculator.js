@@ -8,6 +8,7 @@ class Capculator {
     this.displayResult = ''
     this.bufferOperands = []
     this.stackOperations = []
+    this.lastStackOperations = []
   }
 
   addOperand (number) {
@@ -49,7 +50,7 @@ class Capculator {
       // Performs the operations if exists all the needed variables
       if (this.prevOperand !== '' && this.currentOperator !== '' && this.currentOperand !== '') {
         this.calculateResult()
-        this.stackOperations.push(this.currentOperator)
+        this.stackOperations.push(operator)
         this.updateDisplay()
       }
 
@@ -63,6 +64,7 @@ class Capculator {
   calculateResult () {
     if (this.prevOperand === '' || this.currentOperator === '' || this.currentOperand === '') return
 
+    this.lastStackOperations = this.stackOperations
     this.currentOperand = this.calculate()
     this.stackOperations = []
     this.bufferOperands.push(this.currentOperand)
@@ -117,6 +119,7 @@ class Capculator {
   }
 
   log () {
+    console.log('Last stack: ' + this.lastStackOperations)
     console.log('Stack: ' + this.stackOperations)
     console.log('Buffer: ' + this.bufferOperands)
     console.log('currentOperand: ' + this.currentOperand)
