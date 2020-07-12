@@ -15,4 +15,4 @@ blocks:
           commands:
             - checkout
             - cache restore node-modules-$(checksum package-lock.json),node-modules-
-            - sh bin/production
+            - sh bin/production.sh
