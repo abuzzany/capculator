@@ -133,7 +133,7 @@ describe('The Capculator instance', () => {
     })
   })
 
-  describe('when has compute an operation', () => {
+  describe('when has computed an operation', () => {
     it('should compute an addition correctly wiht the result of thre preoviuos operation', () => {
       const capculator = new Capculator(display)
       capculator.addOperand('5')
