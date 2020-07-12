@@ -105,13 +105,13 @@ export default class Capculator {
   }
 
   updateDisplay () {
-    this.buffer.innerHTML = 'Buffer ' + this.bufferOperands
-    this.stack.innerHTML = 'Stack ' + this.stackOperations
-    this.divCurrentOperand.innerHTML = 'divCurrentOperand ' + this.currentOperand
-    this.divPrevOperand.innerHTML = 'divPrevOperand ' + this.prevOperand
-    this.divCurrentOperator.innerHTML = 'divCurrentOperator ' + this.currentOperator
+    this.buffer.innerText = 'Buffer ' + this.bufferOperands
+    this.stack.innerText = 'Stack ' + this.stackOperations
+    this.divCurrentOperand.innerText = 'divCurrentOperand ' + this.currentOperand
+    this.divPrevOperand.innerText = 'divPrevOperand ' + this.prevOperand
+    this.divCurrentOperator.innerText = 'divCurrentOperator ' + this.currentOperator
 
-    this.display.innerHTML = this.currentOperand
+    this.display.innerText = this.currentOperand.toString()
   }
 
   clearAll () {

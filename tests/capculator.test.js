@@ -17,7 +17,7 @@ beforeAll(() => {
 })
 
 beforeEach(() => {
-  display.innerHTML = '0'
+  display.innerText = '0'
 })
 
 describe('The Capculator instance', () => {
@@ -30,7 +30,8 @@ describe('The Capculator instance', () => {
       capculator.addOperand('5')
       capculator.addOperand('.')
       capculator.updateDisplay()
-      expect(display.innerHTML).toBe('5.5')
+      console.log()
+      expect(display.innerText).toBe('5.5')
     })
     it('should not permit add more than one zero', () => {
       const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
@@ -39,27 +40,27 @@ describe('The Capculator instance', () => {
       capculator.addOperand('0')
       capculator.addOperand('0')
       capculator.updateDisplay()
-      expect(display.innerHTML).toBe('0')
+      expect(display.innerText).toBe('0')
     })
     it('should not perform any operation if an operator was setted', () => {
       const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
 
       capculator.addOperator('+')
-      expect(display.innerHTML).toBe('0')
+      expect(display.innerText).toBe('0')
     })
     it('should display a zero with float point if not exists a previous operand', () => {
       const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
 
       capculator.addOperand('.')
       capculator.updateDisplay()
-      expect(display.innerHTML).toBe('0.')
+      expect(display.innerText).toBe('0.')
     })
     it('should display the operand that was setted', () => {
       const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
 
       capculator.addOperand('5')
       capculator.updateDisplay()
-      expect(display.innerHTML).toBe('5')
+      expect(display.innerText).toBe('5')
     })
   })
 
@@ -71,7 +72,7 @@ describe('The Capculator instance', () => {
       capculator.addOperand('5')
       capculator.addOperator('=')
       capculator.updateDisplay()
-      expect(display.innerHTML).toBe('10')
+      expect(display.innerText).toBe('10')
     })
     it('should compute a substraction correctly', () => {
       const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
@@ -80,7 +81,7 @@ describe('The Capculator instance', () => {
       capculator.addOperand('5')
       capculator.addOperator('=')
       capculator.updateDisplay()
-      expect(display.innerHTML).toBe('0')
+      expect(display.innerText).toBe('0')
     })
     it('should compute a multiplication correctly', () => {
       const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
@@ -89,7 +90,7 @@ describe('The Capculator instance', () => {
       capculator.addOperand('5')
       capculator.addOperator('=')
       capculator.updateDisplay()
-      expect(display.innerHTML).toBe('25')
+      expect(display.innerText).toBe('25')
     })
     it('should compute a division correctly', () => {
       const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
@@ -98,7 +99,7 @@ describe('The Capculator instance', () => {
       capculator.addOperand('2')
       capculator.addOperator('=')
       capculator.updateDisplay()
-      expect(display.innerHTML).toBe('2.5')
+      expect(display.innerText).toBe('2.5')
     })
 
     describe('and the next operator is not equal operator', () => {
@@ -108,7 +109,7 @@ describe('The Capculator instance', () => {
         capculator.addOperator('+')
         capculator.addOperand('5')
         capculator.addOperator('+')
-        expect(display.innerHTML).toBe('10')
+        expect(display.innerText).toBe('10')
       })
       it('should compute a substraction correctly', () => {
         const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
@@ -116,7 +117,7 @@ describe('The Capculator instance', () => {
         capculator.addOperator('-')
         capculator.addOperand('5')
         capculator.addOperator('-')
-        expect(display.innerHTML).toBe('0')
+        expect(display.innerText).toBe('0')
       })
       it('should compute a multiplication correctly', () => {
         const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
@@ -124,7 +125,7 @@ describe('The Capculator instance', () => {
         capculator.addOperator('*')
         capculator.addOperand('5')
         capculator.addOperator('*')
-        expect(display.innerHTML).toBe('25')
+        expect(display.innerText).toBe('25')
       })
       it('should compute a division correctly', () => {
         const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
@@ -132,7 +133,7 @@ describe('The Capculator instance', () => {
         capculator.addOperator('/')
         capculator.addOperand('2')
         capculator.addOperator('/')
-        expect(display.innerHTML).toBe('2.5')
+        expect(display.innerText).toBe('2.5')
       })
     })
   })
@@ -147,7 +148,7 @@ describe('The Capculator instance', () => {
       capculator.addOperand('2')
       capculator.addOperator('=')
       capculator.updateDisplay()
-      expect(display.innerHTML).toBe('12')
+      expect(display.innerText).toBe('12')
     })
     it('should compute a substraction correctly wiht the result of thre preoviuos operation', () => {
       const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
@@ -158,7 +159,7 @@ describe('The Capculator instance', () => {
       capculator.addOperand('2')
       capculator.addOperator('=')
       capculator.updateDisplay()
-      expect(display.innerHTML).toBe('3')
+      expect(display.innerText).toBe('3')
     })
     it('should compute an addition correctly wiht the result of thre preoviuos operation', () => {
       const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
@@ -169,7 +170,7 @@ describe('The Capculator instance', () => {
       capculator.addOperand('2')
       capculator.addOperator('=')
       capculator.updateDisplay()
-      expect(display.innerHTML).toBe('50')
+      expect(display.innerText).toBe('50')
     })
     it('should compute an addition correctly wiht the result of thre preoviuos operation', () => {
       const capculator = new Capculator(display, buffer, stack, divCurrentOperand, divPrevOperand, divCurrentOperator)
@@ -180,7 +181,7 @@ describe('The Capculator instance', () => {
       capculator.addOperand('2')
       capculator.addOperator('=')
       capculator.updateDisplay()
-      expect(display.innerHTML).toBe('2.5')
+      expect(display.innerText).toBe('2.5')
     })
   })
 })

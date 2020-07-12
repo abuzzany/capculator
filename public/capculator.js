@@ -47,7 +47,7 @@ var Capculator = /*#__PURE__*/function () {
 
 
       if (number === '.' && this.currentOperand === '') {
-        number = "0.";
+        number = '0.';
       }
 
       this.bufferOperands.push(number);
@@ -93,19 +93,19 @@ var Capculator = /*#__PURE__*/function () {
       var result;
 
       switch (this.currentOperator) {
-        case "+":
+        case '+':
           result = parseFloat(this.stackOperations[0]) + parseFloat(this.stackOperations[2]);
           break;
 
-        case "-":
+        case '-':
           result = parseFloat(this.stackOperations[0]) - parseFloat(this.stackOperations[2]);
           break;
 
-        case "*":
+        case '*':
           result = parseFloat(this.stackOperations[0]) * parseFloat(this.stackOperations[2]);
           break;
 
-        case "/":
+        case '/':
           result = parseFloat(this.stackOperations[0]) / parseFloat(this.stackOperations[2]);
           break;
       }
@@ -115,7 +115,7 @@ var Capculator = /*#__PURE__*/function () {
   }, {
     key: "emptyBufferOperands",
     value: function emptyBufferOperands() {
-      if (this.bufferOperands.length != 0) {
+      if (this.bufferOperands.length !== 0) {
         this.stackOperations.push(this.bufferOperands.join(''));
         this.bufferOperands = [];
       }
@@ -123,12 +123,12 @@ var Capculator = /*#__PURE__*/function () {
   }, {
     key: "updateDisplay",
     value: function updateDisplay() {
-      this.buffer.innerHTML = "Buffer " + this.bufferOperands;
-      this.stack.innerHTML = "Stack " + this.stackOperations;
-      this.divCurrentOperand.innerHTML = "divCurrentOperand " + this.currentOperand;
-      this.divPrevOperand.innerHTML = "divPrevOperand " + this.prevOperand;
-      this.divCurrentOperator.innerHTML = "divCurrentOperator " + this.currentOperator;
-      this.display.innerHTML = this.currentOperand;
+      this.buffer.innerText = 'Buffer ' + this.bufferOperands;
+      this.stack.innerText = 'Stack ' + this.stackOperations;
+      this.divCurrentOperand.innerText = 'divCurrentOperand ' + this.currentOperand;
+      this.divPrevOperand.innerText = 'divPrevOperand ' + this.prevOperand;
+      this.divCurrentOperator.innerText = 'divCurrentOperator ' + this.currentOperator;
+      this.display.innerText = this.currentOperand.toString();
     }
   }, {
     key: "clearAll",
