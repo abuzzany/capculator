@@ -4,12 +4,13 @@ module.exports = {
     
     entry: "./src/scripts/main.js",
     output: {
-        filename: "./dist/main.bundle.js"
+        filename: "main.bundle.js"
     },
     plugins: [
         new HtmlWebpackPlugin({
             hash: true,
-            filename: './dist/index.html'
+            template: './src/index.html',
+            filename: 'index.html' //relative to root of the application
         })
    ]
 }
