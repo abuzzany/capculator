@@ -23,7 +23,7 @@
     "test": "jest",
     "standard": "standard src/scripts/*",
     "build": "webpack --mode=development",
-    "docs": "node_modules/jsdoc/jsdoc.js -c jsdoc.config.json -t ./node_modules/ink-docstrap/template -R README.md -r ."
+    "docs": "node_modules/jsdoc/jsdoc.js -c jsdoc.config.json -t ./node_modules/ink-docstrap/template -R Readme.md -r ."
   },
   "repository": {
     "type": "git",
