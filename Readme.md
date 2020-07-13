@@ -48,6 +48,21 @@ desde la siguiente liga, el sitio está hosteado en un [S3](https://aws.amazon.c
 
 [Demo](https://capculator.s3-us-west-2.amazonaws.com/index.html)
 
+## Docker
+Y porque estamos en el 2020 y nadie lo pidió también puedes ejecutar el proyecto
+sobre [Docker](https://www.docker.com/), solo asegurate de tenerl instalado,
+sino sabes como, lo puedes hacer desde la siguiente liga:
+
+[Descargar Docker](https://docs.docker.com/docker-for-windows/install/)
+
+Una vez instalado docker ejecuta los siguientes comando para construir la imagen
+y luego lanzar el contenedor que contendrá el proyecto:
+
+```bash
+make dkr-setup
+make dkr-start
+```
+
 ## CI/CD
 
 El pipeline de Continuous integration y Continuous delivery (CI/CD) del proyecto corre
