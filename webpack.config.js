@@ -5,6 +5,17 @@ module.exports = {
     output: {
         filename: "main.bundle.js"
     },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                ],
+            },
+        ],
+    },
     plugins: [
         new HtmlWebpackPlugin({
             hash: true,

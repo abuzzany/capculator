@@ -1,4 +1,5 @@
 import Capculator from './capculator'
+import '../css/style.css';
 
 const operandButtons = document.querySelectorAll('[data-operand]')
 const operatorButtons = document.querySelectorAll('[data-operator]')
