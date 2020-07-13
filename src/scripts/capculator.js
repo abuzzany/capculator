@@ -73,7 +73,6 @@ class Capculator {
   clearAll () {
     this.prevOperand = ''
     this.currentOperand = ''
-    this.prevOperator = ''
     this.currentOperator = ''
     this.bufferOperands = []
     this.stackOperations = []
