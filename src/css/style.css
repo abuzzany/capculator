@@ -1,9 +1,17 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+    font-weight: normal;
+    color: rgb(232, 231, 232);
+}
+
 table{
     margin: auto;
     border-collapse: collapse;
     width: 100px;
     height: 200px;
     border: 1px solid black;
+
 }
 
 td{
@@ -12,13 +20,9 @@ td{
     height: 10px;
 }
 
-button:hover{
-    background-color: rgba(181, 181, 181);
-}
-
 .display{
     grid-column: 1 / -1;
-    background-color: rgba(0, 0, 0, .75);
+    background-color: rgb(50, 48, 50);
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
@@ -28,28 +32,20 @@ button:hover{
     word-break: break-all;
 }
 
-.clear{
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-content: center;
-    background-color: rgba(76, 75, 76);
-    outline: none;
-    font-size: 1rem;
-    display:inline-block;
-}
-
 .operand{
     cursor: pointer;
     width: 100%;
     height: 100%;
     justify-content: center;
     align-content: center;
-    background-color: rgba(124, 123, 124);
+    background-color: rgb(124, 123, 124);
     outline: none;
     font-size: 1rem;
     display:inline-block;
+}
+
+.operand:hover{
+    background-color: rgb(181, 181, 181);
 }
 
 .operator{
@@ -58,8 +54,29 @@ button:hover{
     height: 100%;
     justify-content: center;
     align-content: center;
-    background-color: rgba(255, 152, 50);
+    background-color: rgb(255, 152, 50);
     outline: none;
     font-size: 1rem;
     display:inline-block;
 }
+
+.operator:hover{
+    background-color: rgb(217, 120, 37);
+}
+
+.clear{
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-content: center;
+    background-color: rgb(76, 75, 76);
+    outline: none;
+    font-size: 1rem;
+    display:inline-block;
+}
+
+.clear:hover{
+    background-color: rgb(181, 181, 181);
+}
+
