@@ -36,7 +36,7 @@ blocks:
             - cache restore
             - npm run test
             - cache store
-  - name: Build project 📦
+  - name: Build project and generate docs 📦
     task:
       jobs:
         - name: npm run build
@@ -46,6 +46,13 @@ blocks:
             - cache restore
             - npm install
             - cache store
+         - name: npm run build
+            commands:
+              - checkout
+              - sem-version node 12
+              - cache restore
+              - npm run docs
+              - cache store
 
 promotions:
   - name: Production deploy 🚀
