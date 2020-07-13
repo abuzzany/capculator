@@ -11,7 +11,7 @@ Esta aplicación aunque es un sitio estático, hace uso de NodeJS para poder
 trabajar con los módulos de ES6, ejecutar unit tests y generar los compilados de
 los archivos estáticos.
 
-Antes de comenzar te recomiendo que instales NodeJS en su versión *14.4.0* o
+Asegurate de tener instalado NodeJS en su versión *14.4.0* o
 superior, lo puedes hacer en la siguiente liga:
 
 [Descarga NodeJS](https://nodejs.org/en/)
