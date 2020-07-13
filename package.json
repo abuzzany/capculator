@@ -22,7 +22,8 @@
   "scripts": {
     "test": "jest",
     "standard": "standard src/scripts/*",
-    "build": "webpack --mode=development"
+    "build": "webpack --mode=development",
+    "docs": "node_modules/jsdoc/jsdoc.js ./src/scripts -d ./dist/docs"
   },
   "repository": {
     "type": "git",
