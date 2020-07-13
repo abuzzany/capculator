@@ -31,6 +31,7 @@ dkr-start                      Start and lunch the project on the browser based 
 setup                          Install dependencies
 start                          Start and lunch the project on the browser
 test                           Run suit test
+docs                           Generate docs
 ```
 
 ## Instalación
@@ -39,6 +40,14 @@ Para instalar el proyecto solo ejecuta desde tu terminal el sigiuente comando:
 ```bash
 make setup
 ```
+
+## Documenación
+La documentación de este proyecto es generada por [JSDoc](https://jsdoc.app/)
+de manera automática en cada deploy. En la siguiente liga puedes encontrar la
+documentación oficial:
+
+[Capculator Docs](https://capculator.s3-us-west-2.amazonaws.com/docs/index.html)
+
 
 ## Guía Uso
 
