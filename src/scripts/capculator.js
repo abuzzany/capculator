@@ -92,7 +92,7 @@ class Capculator {
 
   updateDisplay () {
     this.log()
-    if(this.currentOperand === '') return this.display.innerText = '0'
+    if (this.currentOperand === '') return this.display.innerText = '0'
     this.display.innerText = this.currentOperand.toString()
   }
 
