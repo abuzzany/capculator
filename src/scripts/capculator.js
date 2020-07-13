@@ -93,11 +93,12 @@ class Capculator {
   _computeOperation () {
     if (!this._isReadyToComputeOperation()) return
 
-    this.currentOperand = new CapculatorEngine(this.stackOperations, this.currentOperator).compute().toString()
+    const capEnginge = new CapculatorEngine(this.stackOperations)
+    this.currentOperand = capEnginge.compute().toString()
+
     this.lastStackOperations = this.stackOperations
     this.stackOperations = []
-    this.bufferOperands.push(this.currentOperand)
-    this._emptyBufferOperands()
+    this.stackOperations.push(this.currentOperand)
   }
 
   _assignLastOperation () {

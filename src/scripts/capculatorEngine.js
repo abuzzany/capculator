@@ -1,13 +1,12 @@
 class CapculatorEngine {
-  constructor (stackOperations, currentOperator) {
+  constructor (stackOperations) {
     this.stackOperations = stackOperations
-    this.currentOperator = currentOperator
   }
 
   compute () {
     let result = 0
 
-    switch (this.currentOperator) {
+    switch (this.stackOperations[1]) {
       case '+':
         result = parseFloat(this.stackOperations[0]) + parseFloat(this.stackOperations[2])
         break
