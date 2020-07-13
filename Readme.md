@@ -112,3 +112,7 @@ make test
 Se siguen las guías de estilo de [Airbnb](https://github.com/airbnb/javascript),
 para cuidar y atuomatizar las reglas de estilos se hace uso de [JavaScript Standard Style
 ](https://standardjs.com).
+
+## Licencia
+
+Capculator is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
