@@ -1,7 +1,7 @@
 [![Build Status](https://abuzzany.semaphoreci.com/badges/capculator/branches/master.svg?style=shields)](https://abuzzany.semaphoreci.com/projects/capculator)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-## Capculator  ⚙️🧮
+# Capculator  ⚙️🧮
 Capculator es una aplicación web, cuya principal función es emular el
 funcionamiento de una calculadora para realizar operaciones
 aritméticas básicas tales como suma, resta, multiplicación y división.
@@ -28,7 +28,7 @@ sigiuente comando:
 make setup
 ```
 
-## Uso
+## Guía Uso
 
 Para que puedas probar el proyecto en tu maquina solo ejecuta el siguiente comando:
 
