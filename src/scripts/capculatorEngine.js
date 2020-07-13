@@ -1,23 +1,25 @@
 class CapculatorEngine {
   constructor (stackOperations) {
-    this.stackOperations = stackOperations
+    this.firstOperand = stackOperations[0]
+    this.operator = stackOperations[1]
+    this.secondOperand = stackOperations[2]
   }
 
   compute () {
     let result = 0
 
-    switch (this.stackOperations[1]) {
+    switch (this.operator) {
       case '+':
-        result = parseFloat(this.stackOperations[0]) + parseFloat(this.stackOperations[2])
+        result = parseFloat(this.firstOperand) + parseFloat(this.secondOperand)
         break
       case '-':
-        result = parseFloat(this.stackOperations[0]) - parseFloat(this.stackOperations[2])
+        result = parseFloat(this.firstOperand) - parseFloat(this.secondOperand)
         break
       case '*':
-        result = parseFloat(this.stackOperations[0]) * parseFloat(this.stackOperations[2])
+        result = parseFloat(this.firstOperand) * parseFloat(this.secondOperand)
         break
       case '/':
-        result = parseFloat(this.stackOperations[0]) / parseFloat(this.stackOperations[2])
+        result = parseFloat(this.firstOperand) / parseFloat(this.secondOperand)
         break
     }
 
