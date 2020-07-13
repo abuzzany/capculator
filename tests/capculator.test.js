@@ -1,14 +1,7 @@
 import Capculator from '../src/scripts/capculator'
 
 beforeAll(() => {
-  document.body.innerHTML = document.body.innerHTML + "<div id='display' >0</div>"
-  document.body.innerHTML = document.body.innerHTML + "<div id='buffer' ></div>"
-  document.body.innerHTML = document.body.innerHTML + "<div id='stack' ></div>"
-  document.body.innerHTML = document.body.innerHTML + "<div id='divCurrentOperand' ></div>"
-  document.body.innerHTML = document.body.innerHTML + "<div id='divPrevOperand' ></div>"
-  document.body.innerHTML = document.body.innerHTML + "<div id='divCurrentOperator' ></div>"
-
-  const display = document.querySelector('[data-display]')
+  document.body.innerHTML = "<div id='display' >0</div>"
 })
 
 beforeEach(() => {
@@ -25,7 +18,6 @@ describe('The Capculator instance', () => {
       capculator.addOperand('5')
       capculator.addOperand('.')
       capculator.updateDisplay()
-      console.log()
       expect(display.innerText).toBe('5.5')
     })
     it('should not permit add more than one zero', () => {
