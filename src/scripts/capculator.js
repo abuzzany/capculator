@@ -51,7 +51,6 @@ class Capculator {
   }
 
   updateDisplay () {
-    this.log()
     if (this._currentOperandIsEmpty()) {
       this.display.innerText = '0'
       return
@@ -71,16 +70,6 @@ class Capculator {
   clear () {
     this.currentOperand = ''
     this.bufferOperands = []
-  }
-
-  log () {
-    console.log('Last stack: ' + this.lastStackOperations)
-    console.log('Stack: ' + this.stackOperations)
-    console.log('Buffer: ' + this.bufferOperands)
-    console.log('currentOperand: ' + this.currentOperand)
-    console.log('prevOperand: ' + this.prevOperand)
-    console.log('currentOperator: ' + this.currentOperator)
-    console.log('------------------------------')
   }
 
   _emptyBufferOperands () {
