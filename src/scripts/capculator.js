@@ -47,7 +47,7 @@ class Capculator {
       this.stackOperations.push(operator)
 
       // Performs the operations if exists all the needed variables
-      if (this.prevOperand !== '' && this.currentOperator !== '' && this.currentOperand !== '') {
+      if (this._isReadyToComputeOperation()) {
         this._calculateResult()
         this.stackOperations.push(operator)
         this.updateDisplay()
@@ -63,7 +63,10 @@ class Capculator {
 
   updateDisplay () {
     this.log()
-    if (this.currentOperand === '') return this.display.innerText = '0'
+    if (this._currentOperandIsEmpty()) {
+      this.display.innerText = '0'
+      return
+    }
     this.display.innerText = this.currentOperand.toString()
   }
 
@@ -127,6 +130,10 @@ class Capculator {
 
   _currentOperandIsEmpty () {
     return (this.currentOperand === '')
+  }
+
+  _isReadyToComputeOperation () {
+    return (this.prevOperand !== '' && this.currentOperator !== '' && this.currentOperand !== '')
   }
 }
 
