@@ -19,6 +19,9 @@ start: build ## Start and lunch the project on the browser
 test: ## Run suit test
 	npm run test
 
+docs: ## Generate docs
+	npm run docs
+
 dkr-setup: ## Build dockerfile and install the project
 	docker build -t capculator:v1 .
 
