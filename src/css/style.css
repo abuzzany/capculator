@@ -5,7 +5,7 @@
     color: rgb(232, 231, 232);
 }
 
-table{
+.capculator{
     margin: auto;
     border-collapse: collapse;
     width: 100px;
@@ -14,7 +14,7 @@ table{
 
 }
 
-td{
+.capculator > td{
     border: 1px solid black;
     width: 10px;
     height: 10px;
