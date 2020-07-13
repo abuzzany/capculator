@@ -22,7 +22,7 @@ class Capculator {
     }
 
     // Add zero if the operand is a float point and there is no a ccurrentOperand
-    if (number === '.' && this.currentOperand === '') {
+    if (this._operandIsFloatPoint(number) && this.currentOperand === '') {
       number = '0.'
     }
 
