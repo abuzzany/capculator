@@ -77,31 +77,10 @@ class Capculator {
     if (this.prevOperand === '' || this.currentOperator === '' || this.currentOperand === '') return
 
     this.lastStackOperations = this.stackOperations
-    this.currentOperand = new CapculatorEngine(this.stackOperations, this.currentOperator).compute()
+    this.currentOperand = new CapculatorEngine(this.stackOperations, this.currentOperator).compute().toString()
     this.stackOperations = []
     this.bufferOperands.push(this.currentOperand)
     this.emptyBufferOperands()
-  }
-
-  calculate () {
-    let result
-
-    switch (this.currentOperator) {
-      case '+':
-        result = parseFloat(this.stackOperations[0]) + parseFloat(this.stackOperations[2])
-        break
-      case '-':
-        result = parseFloat(this.stackOperations[0]) - parseFloat(this.stackOperations[2])
-        break
-      case '*':
-        result = parseFloat(this.stackOperations[0]) * parseFloat(this.stackOperations[2])
-        break
-      case '/':
-        result = parseFloat(this.stackOperations[0]) / parseFloat(this.stackOperations[2])
-        break
-    }
-
-    return result
   }
 
   emptyBufferOperands () {
