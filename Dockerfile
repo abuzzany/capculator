@@ -15,4 +15,4 @@ RUN make setup
 ADD . $INSTALL_PATH
 RUN make build
 # Copy site to nginx directory
-COPY ./dist/* /usr/share/nginx/html/
+RUN cp $INSTALL_PATH/dist/* /usr/share/nginx/html/
