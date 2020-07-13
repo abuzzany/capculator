@@ -34,7 +34,7 @@ test                           Run suit test
 ```
 
 ## Instalación
-Para instalar el proyecto solo ejecuta desde tu terminarl el sigiuente comando:
+Para instalar el proyecto solo ejecuta desde tu terminal el sigiuente comando:
 
 ```bash
 make setup
@@ -49,16 +49,19 @@ comando:
 make start
 ```
 
+esto abrirá en tu browser el proyecto.
+
 ## Demo en vivo
 
-Si prefieres ver el proyecto en vivo sin necesidad de instalarlo lo puedes hacer
-desde la siguiente liga, el sitio está hosteado en un [S3](https://aws.amazon.com/s3/) de [AWS](https://aws.amazon.com/):
+Si prefieres ver el proyecto en vivo sin necesidad de instalarlo, lo puedes hacer
+desde la siguiente liga, el sitio está hosteado en un
+[bucket S3](https://aws.amazon.com/s3/) de [AWS](https://aws.amazon.com/):
 
 [Demo](https://capculator.s3-us-west-2.amazonaws.com/index.html)
 
 ## Docker
-Y porque estamos en el 2020 y nadie lo pidió también puedes ejecutar el proyecto
-sobre [Docker](https://www.docker.com/), solo asegurate de tenerl instalado,
+Y porque estamos en el 2020 y nadie lo pidió, también puedes ejecutar el proyecto
+sobre [Docker](https://www.docker.com/), solo asegurate de tenerlo instalado,
 sino sabes como, lo puedes hacer desde la siguiente liga:
 
 [Descargar Docker](https://docs.docker.com/docker-for-windows/install/)
@@ -86,12 +89,6 @@ sobre [SemaphoreCI](https://abuzzany.semaphoreci.com/branches/f6c9090a-7b57-42f6
 si el pipeline se rompe en cualquiera de estos escenarios no se podrá hacer 
 deploy del sitio.
 
-## Guía de estilo
-
-Se siguen las guías de estilo de [Airbnb](https://github.com/airbnb/javascript),
-para cuidar y atuomatizar se hace uso de [JavaScript Standard Style
-](https://standardjs.com).
-
 ## Tests
 
 El testing se hace con [Jest](https://jestjs.io/), si quieres ejecutar la suite
@@ -101,4 +98,8 @@ de pruebas solo ejecuta el siguiente comando:
 make test
 ```
 
+## Guía de estilo
 
+Se siguen las guías de estilo de [Airbnb](https://github.com/airbnb/javascript),
+para cuidar y atuomatizar las reglas de estilos se hace uso de [JavaScript Standard Style
+](https://standardjs.com).
