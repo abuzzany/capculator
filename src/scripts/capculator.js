@@ -14,25 +14,18 @@ class Capculator {
   addOperand (number) {
     if (this._operandIsFloatPoint(number) && this._currentOperandContainsFloatPoint()) return
     if (this._operandIsZero(number) && this._currentOperandStartsWithZero() && !this._currentOperandContainsFloatPoint()) return
-
     // If exists a previous operation and the user starts to digit again
     // clear previous operation to starts a new one
-    if (this.currentOperator === '=') {
-      this.clearAll()
-    }
-
+    if (this.currentOperator === '=') this.clearAll()
     // Add zero if the operand is a float point and there is no a ccurrentOperand
-    if (this._operandIsFloatPoint(number) && this.currentOperand === '') {
-      number = '0.'
-    }
-
+    if (this._operandIsFloatPoint(number) && this._currentOperandIsEmpty()) number = '0.'
     this.bufferOperands.push(number)
     this.currentOperand = this.currentOperand + number
   }
 
   addOperator (operator) {
     // Returns if there is no at least an operand to perform an operation
-    if (this.currentOperand === '') return
+    if (this._currentOperandIsEmpty()) return
 
     this._emptyBufferOperands()
 
@@ -130,6 +123,10 @@ class Capculator {
 
   _currentOperandStartsWithZero () {
     return (this.currentOperand.startsWith('0'))
+  }
+
+  _currentOperandIsEmpty () {
+    return (this.currentOperand === '')
   }
 }
 
