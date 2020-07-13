@@ -59,7 +59,7 @@ describe('The Capculator instance', () => {
     })
   })
 
-  describe('when has two operands and one operator is setted', () => {
+  describe('when has been setted two operands and one operator', () => {
     it('should compute an addition correctly', () => {
       const capculator = new Capculator(display)
       capculator.addOperand('5')
@@ -129,6 +129,45 @@ describe('The Capculator instance', () => {
         capculator.addOperand('2')
         capculator.addOperator('/')
         expect(display.innerText).toBe('2.5')
+      })
+    })
+
+    describe('and the clear function is performed', () => {
+      it('should clear the las operand and diplay zero', () => {
+        const capculator = new Capculator(display)
+        capculator.addOperand('5')
+        capculator.addOperator('+')
+        capculator.addOperand('10')
+        capculator.clear()
+        capculator.updateDisplay()
+        expect(display.innerText).toBe('0')
+      })
+    })
+
+    describe('and the clearAll function is performed', () => {
+      it('should clear all the memorized operation', () => {
+        const capculator = new Capculator(display)
+        capculator.addOperand('5')
+        capculator.addOperator('+')
+        capculator.addOperand('10')
+        capculator.clearAll()
+        capculator.addOperator('=')
+        capculator.updateDisplay()
+        expect(display.innerText).toBe('0')
+      })
+    })
+
+    describe('and the clear function is performed and then setted a new operand', () => {
+      it('should compute and display the operation correctly', () => {
+        const capculator = new Capculator(display)
+        capculator.addOperand('5')
+        capculator.addOperator('+')
+        capculator.addOperand('10')
+        capculator.clear()
+        capculator.addOperand('2')
+        capculator.addOperator('=')
+        capculator.updateDisplay()
+        expect(display.innerText).toBe('7')
       })
     })
   })
