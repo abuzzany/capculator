@@ -18,3 +18,9 @@ start: build
 
 test:
 	npm run test
+
+dkr-setup:
+	docker build -t capculator:v1 .
+
+dkr-start:
+	docker run -d -p 7000:80 capculator:v1 && open 'http://localhost:7000'
