@@ -12,6 +12,9 @@ setup: clean
 
 build:
 	npm run build
+	
+start: build
+	open ./dist/index.html
 
 test:
 	npm run test
