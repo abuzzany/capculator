@@ -1,6 +1,6 @@
 /** This class works to compute basic arithmetic operation. */
 class CapculatorEngine {
-   /**
+  /**
    * Create an instace of CapculatorEngine.
    * @param {Array} stackOperations - The stackOperations value.
    */
