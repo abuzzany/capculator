@@ -51,6 +51,7 @@ blocks:
             - checkout
             - sem-version node 12
             - cache restore
+            - npm install
             - npm run docs
             - cache store
 
