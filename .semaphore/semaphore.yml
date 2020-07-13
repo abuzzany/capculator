@@ -47,7 +47,7 @@ blocks:
             - npm install
             - cache store
          - name: npm run build
-           commands:
+          commands:
             - checkout
             - sem-version node 12
             - cache restore
