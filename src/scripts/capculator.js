@@ -30,14 +30,7 @@ class Capculator {
 
     if (operator === '=') {
       // Performs the last operation
-      if (this.lastStackOperations.length > 0) {
-        this.stackOperations[1] = this.lastStackOperations[1]
-        this.stackOperations[2] = this.lastStackOperations[2]
-
-        this.prevOperand = this.currentOperand
-        this.currentOperand = this.lastStackOperations[2]
-        this.currentOperator = this.lastStackOperations[1]
-      }
+      if (this._wasComputedAnOperation()) this._computeLastOperation()
 
       this._calculateResult()
 
@@ -101,13 +94,22 @@ class Capculator {
   }
 
   _calculateResult () {
-    if (this.prevOperand === '' || this.currentOperator === '' || this.currentOperand === '') return
+    if (!this._isReadyToComputeOperation()) return
 
     this.lastStackOperations = this.stackOperations
     this.currentOperand = new CapculatorEngine(this.stackOperations, this.currentOperator).compute().toString()
     this.stackOperations = []
     this.bufferOperands.push(this.currentOperand)
     this._emptyBufferOperands()
+  }
+
+  _computeLastOperation() {
+    this.stackOperations[1] = this.lastStackOperations[1]
+    this.stackOperations[2] = this.lastStackOperations[2]
+
+    this.prevOperand = this.currentOperand
+    this.currentOperand = this.lastStackOperations[2]
+    this.currentOperator = this.lastStackOperations[1]
   }
 
   _operandIsFloatPoint (number) {
