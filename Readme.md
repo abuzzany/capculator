@@ -60,6 +60,8 @@ make start
 
 esto abrirá en tu browser el proyecto.
 
+![capculator](./img/capculator.png)
+
 ## Demo en vivo
 
 Si prefieres ver el proyecto en vivo sin necesidad de instalarlo, lo puedes hacer
@@ -97,6 +99,8 @@ sobre [SemaphoreCI](https://abuzzany.semaphoreci.com/branches/f6c9090a-7b57-42f6
 
 si el pipeline se rompe en cualquiera de estos escenarios no se podrá hacer 
 deploy del sitio.
+
+![ci/cd](./img/semaphore.png)
 
 ## Tests
 
