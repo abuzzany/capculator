@@ -4,7 +4,6 @@ class Capculator {
     this.display = display
     this.prevOperand = ''
     this.currentOperand = ''
-    this.prevOperator = ''
     this.currentOperator = ''
     this.displayResult = ''
     this.bufferOperands = []
@@ -13,12 +12,8 @@ class Capculator {
   }
 
   addOperand (number) {
-    // Guards for:
-    // Prevent add several float points
-    // Prevent add several zeros if there is no and operand but permits add it
-    // after a float point
-    if (number === '.' && this.currentOperand.includes('.')) return
-    if (number === '0' && this.currentOperand.startsWith('0') && !this.currentOperand.includes('.')) return
+    if (this._operandIsFloatPoint(number) && this._currentOperandContainsFloatPoint()) return
+    if (this._operandIsZero(number) && this._currentOperandStartsWithZero() && !this._currentOperandContainsFloatPoint()) return
 
     // If exists a previous operation and the user starts to digit again
     // clear previous operation to starts a new one
@@ -39,7 +34,7 @@ class Capculator {
     // Returns if there is no at least an operand to perform an operation
     if (this.currentOperand === '') return
 
-    this.emptyBufferOperands()
+    this._emptyBufferOperands()
 
     if (operator === '=') {
       // Performs the last operation
@@ -52,7 +47,7 @@ class Capculator {
         this.currentOperator = this.lastStackOperations[1]
       }
 
-      this.calculateResult()
+      this._calculateResult()
 
       this.prevOperand = ''
     } else {
@@ -60,7 +55,7 @@ class Capculator {
 
       // Performs the operations if exists all the needed variables
       if (this.prevOperand !== '' && this.currentOperator !== '' && this.currentOperand !== '') {
-        this.calculateResult()
+        this._calculateResult()
         this.stackOperations.push(operator)
         this.updateDisplay()
       }
@@ -71,23 +66,6 @@ class Capculator {
     }
 
     this.currentOperator = operator
-  }
-
-  calculateResult () {
-    if (this.prevOperand === '' || this.currentOperator === '' || this.currentOperand === '') return
-
-    this.lastStackOperations = this.stackOperations
-    this.currentOperand = new CapculatorEngine(this.stackOperations, this.currentOperator).compute().toString()
-    this.stackOperations = []
-    this.bufferOperands.push(this.currentOperand)
-    this.emptyBufferOperands()
-  }
-
-  emptyBufferOperands () {
-    if (this.bufferOperands.length !== 0) {
-      this.stackOperations.push(this.bufferOperands.join(''))
-      this.bufferOperands = []
-    }
   }
 
   updateDisplay () {
@@ -118,8 +96,40 @@ class Capculator {
     console.log('currentOperand: ' + this.currentOperand)
     console.log('prevOperand: ' + this.prevOperand)
     console.log('currentOperator: ' + this.currentOperator)
-    console.log('prevOperator: ' + this.prevOperator)
     console.log('------------------------------')
+  }
+
+  _emptyBufferOperands () {
+    if (this.bufferOperands.length !== 0) {
+      this.stackOperations.push(this.bufferOperands.join(''))
+      this.bufferOperands = []
+    }
+  }
+
+  _calculateResult () {
+    if (this.prevOperand === '' || this.currentOperator === '' || this.currentOperand === '') return
+
+    this.lastStackOperations = this.stackOperations
+    this.currentOperand = new CapculatorEngine(this.stackOperations, this.currentOperator).compute().toString()
+    this.stackOperations = []
+    this.bufferOperands.push(this.currentOperand)
+    this._emptyBufferOperands()
+  }
+
+  _operandIsFloatPoint (number) {
+    return (number === '.')
+  }
+
+  _currentOperandContainsFloatPoint () {
+    return this.currentOperand.includes('.')
+  }
+
+  _operandIsZero (number) {
+    return (number === '0')
+  }
+
+  _currentOperandStartsWithZero () {
+    return (this.currentOperand.startsWith('0'))
   }
 }
 
