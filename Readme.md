@@ -23,6 +23,14 @@ solo ejecuta:
 
 ```bash
 make help
+
+build                          Build the project
+clean                          Remove node_modules and dist directories
+dkr-setup                      Build dockerfile and install the project
+dkr-start                      Start and lunch the project on the browser based of a docker container
+setup                          Install dependencies
+start                          Start and lunch the project on the browser
+test                           Run suit test
 ```
 
 ## Instalación

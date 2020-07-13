@@ -16,7 +16,7 @@ build: ## Build the project
 start: build ## Start and lunch the project on the browser
 	open ./dist/index.html
 
-test: ## Runs suit test
+test: ## Run suit test
 	npm run test
 
 dkr-setup: ## Build dockerfile and install the project
