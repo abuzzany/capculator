@@ -6,7 +6,7 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: Install dependencies
+  - name: Install dependencies ⬇️
     task:
       jobs:
         - name: npm install
@@ -16,7 +16,7 @@ blocks:
             - cache restore
             - npm install
             - cache store
-  - name: Code analysis
+  - name: Code analysis 🔎
     task:
       jobs:
         - name: npm run standard
@@ -26,17 +26,7 @@ blocks:
             - cache restore
             - npm run standard
             - cache store
-  - name: Build project
-    task:
-      jobs:
-        - name: npm run build
-          commands:
-            - checkout
-            - sem-version node 12
-            - cache restore
-            - npm install
-            - cache store
-  - name: Run tests
+  - name: Run tests 🧪
     task:
       jobs:
         - name: npm run test
@@ -46,7 +36,17 @@ blocks:
             - cache restore
             - npm run test
             - cache store
+  - name: Build project 📦
+    task:
+      jobs:
+        - name: npm run build
+          commands:
+            - checkout
+            - sem-version node 12
+            - cache restore
+            - npm install
+            - cache store
 
 promotions:
-  - name: Production deploy
+  - name: Production deploy 🚀
     pipeline_file: production-deploy.yml
