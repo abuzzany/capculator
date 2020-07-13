@@ -34,19 +34,19 @@ class Capculator {
       this._computeOperation()
 
       this.prevOperand = ''
+      return
     } else {
       if (this._isReadyToComputeOperation()) {
         this._computeOperation()
         this.updateDisplay()
       }
 
-      this.stackOperations.push(operator)
-
       this.prevOperand = this.currentOperand
       this.currentOperand = ''
       this.lastStackOperations = []
     }
 
+    this.stackOperations.push(operator)
     this.currentOperator = operator
   }
 
@@ -100,7 +100,7 @@ class Capculator {
     this._emptyBufferOperands()
   }
 
-  _assignLastOperation() {
+  _assignLastOperation () {
     this.stackOperations[1] = this.lastStackOperations[1]
     this.stackOperations[2] = this.lastStackOperations[2]
 
