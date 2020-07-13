@@ -1,0 +1,13 @@
+{
+    "source": {
+        "includePattern": ".+\\.js(doc|x)?$",
+        "include": ["."],
+        "exclude": ["node_modules"]
+    },
+    "recurseDepth": 10,
+    "opts": {
+        "title": "Bookshelf.js",
+        "destination": "./dist/docs/",
+        "recurse": true
+    }
+}
