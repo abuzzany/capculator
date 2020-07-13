@@ -47,12 +47,12 @@ blocks:
             - npm install
             - cache store
          - name: npm run build
-            commands:
-              - checkout
-              - sem-version node 12
-              - cache restore
-              - npm run docs
-              - cache store
+          commands:
+            - checkout
+            - sem-version node 12
+            - cache restore
+            - npm run docs
+            - cache store
 
 promotions:
   - name: Production deploy 🚀
