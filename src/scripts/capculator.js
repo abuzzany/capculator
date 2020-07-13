@@ -30,24 +30,21 @@ class Capculator {
 
     if (operator === '=') {
       // Performs the last operation
-      if (this._wasComputedAnOperation()) this._computeLastOperation()
-
-      this._calculateResult()
+      if (this._wasComputedAnOperation()) this._assignLastOperation()
+      this._computeOperation()
 
       this.prevOperand = ''
     } else {
-      this.stackOperations.push(operator)
-
-      // Performs the operations if exists all the needed variables
       if (this._isReadyToComputeOperation()) {
-        this._calculateResult()
-        this.stackOperations.push(operator)
+        this._computeOperation()
         this.updateDisplay()
       }
 
-      this.lastStackOperations = []
+      this.stackOperations.push(operator)
+
       this.prevOperand = this.currentOperand
       this.currentOperand = ''
+      this.lastStackOperations = []
     }
 
     this.currentOperator = operator
@@ -93,17 +90,17 @@ class Capculator {
     }
   }
 
-  _calculateResult () {
+  _computeOperation () {
     if (!this._isReadyToComputeOperation()) return
 
-    this.lastStackOperations = this.stackOperations
     this.currentOperand = new CapculatorEngine(this.stackOperations, this.currentOperator).compute().toString()
+    this.lastStackOperations = this.stackOperations
     this.stackOperations = []
     this.bufferOperands.push(this.currentOperand)
     this._emptyBufferOperands()
   }
 
-  _computeLastOperation() {
+  _assignLastOperation() {
     this.stackOperations[1] = this.lastStackOperations[1]
     this.stackOperations[2] = this.lastStackOperations[2]
 
